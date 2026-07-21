@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -49,4 +50,7 @@ TagManager:
     locked: 0
   - name: quai
     uniqueID: 3917641543
+    locked: 0
+  - name: player
+    uniqueID: 544382371
     locked: 0
