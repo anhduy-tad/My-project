@@ -1,118 +1,59 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [Header("Settings")]
-    public float speed = 5f;
-    public int currentHealth = 100;
+    public float moveSpeed = 5f;
 
-    private Animator anim;
     private Rigidbody2D rb;
-
-    [HideInInspector] public float moveX = 0f;
-    [HideInInspector] public float moveY = 0f;
+    private Vector2 move;
+    private Animator anim;
+    private SpriteRenderer sr;
 
     void Start()
     {
-        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        moveX = 0f;
-        moveY = 0f;
+        move = Vector2.zero;
 
-        // Bắt phím di chuyển
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            moveX = -1f;
-        }
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            moveX = 1f;
-        }
+        if (Input.GetKey(KeyCode.W))
+            move.y = 1;
 
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-        {
-            moveY = 1f;
-        }
-        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-        {
-            moveY = -1f;
-        }
+        if (Input.GetKey(KeyCode.S))
+            move.y = -1;
 
-        bool isMoving = (moveX != 0 || moveY != 0);
+        if (Input.GetKey(KeyCode.A))
+            move.x = -1;
 
-        // Gửi trạng thái di chuyển sang Animator
-        anim.SetBool("IsRun", isMoving);
+        if (Input.GetKey(KeyCode.D))
+            move.x = 1;
 
-        // Cập nhật hướng Idle
-        if (isMoving)
+        move.Normalize();
+
+        // Quay mặt trái / phải
+        if (sr != null)
         {
-            IdleAnimation();
+            if (move.x > 0.05f)
+                sr.flipX = false;   // Nhìn phải (mặt gốc)
+
+            else if (move.x < -0.05f)
+                sr.flipX = true;    // Nhìn trái
         }
 
-        // Đánh bằng phím J hoặc Chuột trái
-        if (Input.GetKeyDown(KeyCode.J) || Input.GetMouseButtonDown(0))
+        if (anim != null)
         {
-            Attack();
+            anim.SetFloat("Horizontal", move.x);
+            anim.SetFloat("Vertical", move.y);
+            anim.SetFloat("Speed", move.sqrMagnitude);
         }
     }
 
     void FixedUpdate()
     {
-        Vector2 movement = new Vector2(moveX, moveY).normalized;
-        rb.velocity = movement * speed;
-    }
-
-    void IdleAnimation()
-    {
-        if (moveY == -1) { anim.SetFloat("IdleX", 0); anim.SetFloat("IdleY", -1); }
-        if (moveY == 1) { anim.SetFloat("IdleX", 0); anim.SetFloat("IdleY", 1); }
-        if (moveX == -1) { anim.SetFloat("IdleX", -1); anim.SetFloat("IdleY", 0); }
-        if (moveX == 1) { anim.SetFloat("IdleX", 1); anim.SetFloat("IdleY", 0); }
-    }
-
-    void Attack()
-    {
-        anim.SetTrigger("isattack");
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // Va chạm với quái
-        if (collision.gameObject.CompareTag("Enemies"))
-        {
-            Debug.Log("Đã chạm vào quái!");
-            TakeDamage(10);
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        // Nhặt vật phẩm (chỉ xóa vật phẩm, không cộng điểm)
-        if (other.CompareTag("Item"))
-        {
-            Destroy(other.gameObject);
-        }
-    }
-
-    public virtual void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
-    }
-
-    public virtual void Die()
-    {
-        Debug.Log(gameObject.name + " đã chết!");
-        Destroy(gameObject);
+        rb.MovePosition(rb.position + move * moveSpeed * Time.fixedDeltaTime);
     }
 }

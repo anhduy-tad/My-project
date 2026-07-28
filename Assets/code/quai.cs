@@ -1,20 +1,23 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class quai : MonoBehaviour
 {
     [Header("Target")]
     public Transform player;
 
     [Header("Movement")]
     public float moveSpeed = 3f;
-    public float detectRange = 5f;
+    public float detectRange = 1f;
     public float attackRange = 1f;
+
+    [Header("Attack")]
+    public float attackCooldown = 1f;
 
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer sr;
 
-    private bool isAttacking = false;
+    private float attackTimer;
 
     void Start()
     {
@@ -22,45 +25,49 @@ public class Enemy : MonoBehaviour
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
 
-        // Tự tìm Player nếu chưa gán
         if (player == null)
         {
             GameObject p = GameObject.FindGameObjectWithTag("Player");
             if (p != null)
                 player = p.transform;
         }
+
+        attackTimer = 0f;
     }
 
     void FixedUpdate()
     {
         if (player == null) return;
 
+        attackTimer -= Time.fixedDeltaTime;
+
         float distance = Vector2.Distance(transform.position, player.position);
 
+        // Ngoài tầm phát hiện
         if (distance > detectRange)
         {
             if (anim != null)
                 anim.SetFloat("Speed", 0);
 
+            rb.velocity = Vector2.zero;
             return;
         }
 
+        // Hướng tới Player
         Vector2 direction = (player.position - transform.position).normalized;
 
-        // Quay mặt (sprite gốc nhìn sang trái)
+        // Quay mặt (Sprite gốc nhìn sang phải)
         if (sr != null)
         {
             if (direction.x > 0.05f)
-                sr.flipX = true;
-
-            else if (direction.x < -0.05f)
                 sr.flipX = false;
+            else if (direction.x < -0.05f)
+                sr.flipX = true;
         }
 
+        // Đi theo
         if (distance > attackRange)
         {
-            isAttacking = false;
-
             rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
 
             if (anim != null)
@@ -72,15 +79,15 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            if (!isAttacking)
+            if (anim != null)
+                anim.SetFloat("Speed", 0);
+
+            if (attackTimer <= 0)
             {
-                isAttacking = true;
+                attackTimer = attackCooldown;
 
                 if (anim != null)
-                {
-                    anim.SetFloat("Speed", 0);
                     anim.SetTrigger("Attack");
-                }
             }
         }
     }
