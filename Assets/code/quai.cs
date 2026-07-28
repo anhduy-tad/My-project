@@ -7,7 +7,7 @@ public class quai : MonoBehaviour
 
     [Header("Movement")]
     public float moveSpeed = 3f;
-    public float detectRange = 1f;
+    public float detectRange = 0.1f;
     public float attackRange = 1f;
 
     [Header("Attack")]
