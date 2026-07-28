@@ -7,8 +7,9 @@ public class quai : MonoBehaviour
 
     [Header("Movement")]
     public float moveSpeed = 3f;
-    public float detectRange = 0.1f;
-    public float attackRange = 1f;
+    public float detectRange = 8f;   // Tầm nhìn thấy Player
+    public float attackRange = 3f;   // Tầm đánh (ví dụ bắn đạn / chém xa)
+    public float keepDistance = 2f;  // Khoảng cách tối thiểu quái muốn giữ với Player
 
     [Header("Attack")]
     public float attackCooldown = 1f;
@@ -43,20 +44,17 @@ public class quai : MonoBehaviour
 
         float distance = Vector2.Distance(transform.position, player.position);
 
-        // Ngoài tầm phát hiện
+        // 1. Quá xa (ngoài tầm nhìn) -> Đứng yên
         if (distance > detectRange)
         {
-            if (anim != null)
-                anim.SetFloat("Speed", 0);
-
-            rb.velocity = Vector2.zero;
+            StopMoving();
             return;
         }
 
-        // Hướng tới Player
+        // Vector hướng từ Quái tới Player
         Vector2 direction = (player.position - transform.position).normalized;
 
-        // Quay mặt (Sprite gốc nhìn sang phải)
+        // Quay mặt trái/phải theo vị trí Player
         if (sr != null)
         {
             if (direction.x > 0.05f)
@@ -65,10 +63,23 @@ public class quai : MonoBehaviour
                 sr.flipX = true;
         }
 
-        // Đi theo
-        if (distance > attackRange)
+        // 2. Player lại QUÁ GẦN (nhỏ hơn keepDistance) -> Quái LÙI LẠI
+        if (distance < keepDistance)
         {
-            rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
+            // Di chuyển ngược hướng (-direction)
+            rb.velocity = -direction * moveSpeed;
+
+            if (anim != null)
+            {
+                anim.SetFloat("Horizontal", -direction.x);
+                anim.SetFloat("Vertical", -direction.y);
+                anim.SetFloat("Speed", 1);
+            }
+        }
+        // 3. Player ở QUÁ XA tầm đánh -> Quái TIẾN LẠI GẦN
+        else if (distance > attackRange)
+        {
+            rb.velocity = direction * moveSpeed;
 
             if (anim != null)
             {
@@ -77,11 +88,12 @@ public class quai : MonoBehaviour
                 anim.SetFloat("Speed", 1);
             }
         }
+        // 4. Ở trong vùng khoảng cách đẹp (giữa keepDistance và attackRange) -> ĐỨNG LẠI & ĐÁNH
         else
         {
-            if (anim != null)
-                anim.SetFloat("Speed", 0);
+            StopMoving();
 
+            // Thực hiện đòn đánh khi hồi chiêu xong
             if (attackTimer <= 0)
             {
                 attackTimer = attackCooldown;
@@ -90,5 +102,28 @@ public class quai : MonoBehaviour
                     anim.SetTrigger("Attack");
             }
         }
+    }
+
+    private void StopMoving()
+    {
+        rb.velocity = Vector2.zero;
+        if (anim != null)
+            anim.SetFloat("Speed", 0);
+    }
+
+    // Vẽ vòng tròn tầm nhìn/khoảng cách trong Scene View để dễ chỉnh
+    private void OnDrawGizmosSelected()
+    {
+        // Vòng tròn vàng: Tầm phát hiện
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, detectRange);
+
+        // Vòng tròn đỏ: Tầm đánh
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+
+        // Vòng tròn xanh lá: Khoảng cách tối thiểu quái muốn giữ
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, keepDistance);
     }
 }
