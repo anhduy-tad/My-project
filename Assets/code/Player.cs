@@ -14,36 +14,33 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+
+        // Giúp nhân vật không bị xoay tròn khi va chạm với vật thể khác
+        if (rb != null)
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
     }
 
     void Update()
     {
-        move = Vector2.zero;
+        // Nhận input mượt hơn bằng GetAxisRaw (hỗ trợ cả W,A,S,D và phím mũi tên)
+        move.x = Input.GetAxisRaw("Horizontal");
+        move.y = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKey(KeyCode.W))
-            move.y = 1;
-
-        if (Input.GetKey(KeyCode.S))
-            move.y = -1;
-
-        if (Input.GetKey(KeyCode.A))
-            move.x = -1;
-
-        if (Input.GetKey(KeyCode.D))
-            move.x = 1;
-
-        move.Normalize();
+        // Chuẩn hóa vector để di chuyển chéo không bị nhanh hơn
+        move = move.normalized;
 
         // Quay mặt trái / phải
         if (sr != null)
         {
-            if (move.x > 0.05f)
-                sr.flipX = false;
-            else if (move.x < -0.05f)
-                sr.flipX = true;
+            if (move.x > 0.01f)
+                sr.flipX = false;   // Nhìn phải
+            else if (move.x < -0.01f)
+                sr.flipX = true;    // Nhìn trái
         }
 
-        // Animation chạy
+        // Cập nhật Animator
         if (anim != null)
         {
             anim.SetFloat("Horizontal", move.x);
@@ -60,6 +57,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + move * moveSpeed * Time.fixedDeltaTime);
+        // Gán trực tiếp velocity giúp nhân vật lướt mượt và trượt cạnh tường chuẩn hơn
+        rb.velocity = move * moveSpeed;
     }
 }
