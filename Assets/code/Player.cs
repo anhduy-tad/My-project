@@ -46,6 +46,12 @@ public class Player : MonoBehaviour
             anim.SetFloat("Horizontal", move.x);
             anim.SetFloat("Vertical", move.y);
             anim.SetFloat("Speed", move.sqrMagnitude);
+
+            // Đánh bằng phím J
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                anim.SetTrigger("Attack");
+            }
         }
     }
 
