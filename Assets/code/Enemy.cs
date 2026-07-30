@@ -2,19 +2,19 @@
 
 public class Enemy : MonoBehaviour
 {
-    [Header("Target")]
-    public Transform player;
+    [Header("Movement Settings")]
+    public float moveSpeed = 3.5f;
+    public float detectionRange = 15f;
 
-    [Header("Movement")]
-    public float moveSpeed = 3f;
-    public float detectRange = 5f;
-    public float attackRange = 1f;
+    [Header("Target & References")]
+    [Tooltip("Kéo đối tượng muốn đuổi theo vào đây (Nếu để trống, sẽ tự tìm object có Tag là 'Player')")]
+    public Transform target; // Đã đổi/thêm tên chuẩn là target
 
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer sr;
 
-    private bool isAttacking = false;
+    private Vector2 moveDirection;
 
     void Start()
     {
@@ -22,66 +22,73 @@ public class Enemy : MonoBehaviour
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
 
-        // Tự tìm Player nếu chưa gán
-        if (player == null)
+        if (rb != null)
         {
-            GameObject p = GameObject.FindGameObjectWithTag("Player");
-            if (p != null)
-                player = p.transform;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+
+        // Tự tìm Player bằng Tag nếu ô target đang để trống (None)
+        if (target == null)
+        {
+            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+            if (playerObj != null)
+            {
+                target = playerObj.transform;
+                Debug.Log("🟢 Đã tìm thấy Target (Player) thành công!");
+            }
+            else
+            {
+                Debug.LogError("🔴 KHÔNG tìm thấy Target! Hãy kéo Target vào Inspector hoặc gắn Tag 'Player' cho Player.");
+            }
+        }
+    }
+
+    void Update()
+    {
+        if (target == null) return;
+
+        float distanceToTarget = Vector2.Distance(transform.position, target.position);
+
+        if (distanceToTarget <= detectionRange)
+        {
+            moveDirection = (target.position - transform.position).normalized;
+        }
+        else
+        {
+            moveDirection = Vector2.zero;
+        }
+
+        // Lật sprite
+        if (sr != null && Mathf.Abs(moveDirection.x) > 0.01f)
+        {
+            sr.flipX = moveDirection.x < 0;
+        }
+
+        // Cập nhật Animator
+        if (anim != null)
+        {
+            anim.SetFloat("Horizontal", moveDirection.x);
+            anim.SetFloat("Vertical", moveDirection.y);
+            anim.SetFloat("Speed", moveDirection.sqrMagnitude);
         }
     }
 
     void FixedUpdate()
     {
-        if (player == null) return;
-
-        float distance = Vector2.Distance(transform.position, player.position);
-
-        if (distance > detectRange)
+        if (rb == null)
         {
-            if (anim != null)
-                anim.SetFloat("Speed", 0);
-
+            Debug.LogError("🔴 Slime chưa có Rigidbody2D! Hãy thêm Rigidbody2D vào Slime.");
             return;
         }
 
-        Vector2 direction = (player.position - transform.position).normalized;
+        // Đẩy vật lý di chuyển
+        rb.MovePosition(rb.position + moveDirection * moveSpeed * Time.fixedDeltaTime);
+    }
 
-        // Quay mặt (sprite gốc nhìn sang trái)
-        if (sr != null)
-        {
-            if (direction.x > 0.05f)
-                sr.flipX = true;
-
-            else if (direction.x < -0.05f)
-                sr.flipX = false;
-        }
-
-        if (distance > attackRange)
-        {
-            isAttacking = false;
-
-            rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
-
-            if (anim != null)
-            {
-                anim.SetFloat("Horizontal", direction.x);
-                anim.SetFloat("Vertical", direction.y);
-                anim.SetFloat("Speed", 1);
-            }
-        }
-        else
-        {
-            if (!isAttacking)
-            {
-                isAttacking = true;
-
-                if (anim != null)
-                {
-                    anim.SetFloat("Speed", 0);
-                    anim.SetTrigger("Attack");
-                }
-            }
-        }
+    // Vẽ vòng tròn tầm phát hiện trong cửa sổ Scene
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
 }
