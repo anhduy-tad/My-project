@@ -38,17 +38,23 @@ public class Player : MonoBehaviour
         if (sr != null)
         {
             if (move.x > 0.05f)
-                sr.flipX = false;   // Nhìn phải (mặt gốc)
-
+                sr.flipX = false;
             else if (move.x < -0.05f)
-                sr.flipX = true;    // Nhìn trái
+                sr.flipX = true;
         }
 
+        // Animation chạy
         if (anim != null)
         {
             anim.SetFloat("Horizontal", move.x);
             anim.SetFloat("Vertical", move.y);
             anim.SetFloat("Speed", move.sqrMagnitude);
+
+            // Đánh bằng phím J
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                anim.SetTrigger("Attack");
+            }
         }
     }
 
