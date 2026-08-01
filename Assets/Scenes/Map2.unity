@@ -147,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 294707670}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.21, y: 0.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -112857,7 +112857,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.86, y: 2.16, z: -10}
+  m_LocalPosition: {x: -7.7119007, y: 2.1317976, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -112929,7 +112929,7 @@ MonoBehaviour:
   enemyPrefabs: []
   spawnPoints:
   - {fileID: 2207713441607483581, guid: 993848130deded94080292bda190e288, type: 3}
-  timeBetweenSpawn: 2
+  timeBetweenSpawn: 1
 --- !u!4 &566606848
 Transform:
   m_ObjectHideFlags: 0
@@ -113048,10 +113048,11 @@ Transform:
   m_GameObject: {fileID: 615092001}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.8890996, y: 0.8332026, z: -0.076695524}
+  m_LocalPosition: {x: -11.951, y: 0.395, z: -0.076695524}
   m_LocalScale: {x: 1.7283, y: 1.7283, z: 1.7283}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 959029476}
   m_Father: {fileID: 294707671}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &615092005
@@ -113070,6 +113071,15 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   isDead: 0
+  attackPoint: {fileID: 959029476}
+  attackRange: 0.5
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  attackDamage: 8
+  attackRate: 2
+  knockbackForce: 5
+  knockbackDuration: 0.2
 --- !u!50 &615092006
 Rigidbody2D:
   serializedVersion: 4
@@ -113289,7 +113299,7 @@ Transform:
   m_GameObject: {fileID: 793380606}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.86, y: 2.16, z: -10}
+  m_LocalPosition: {x: -7.7119007, y: 2.1317976, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -113491,6 +113501,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   detectionRange: 1.4
+  maxHealth: 50
+  currentHealth: 0
+  damage: 10
+  attackCooldown: 1
+  knockbackForce: 4
+  knockbackDuration: 0.15
   target: {fileID: 615092004}
 --- !u!1 &956275080
 GameObject:
@@ -113592,6 +113608,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &959029475
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 959029476}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &959029476
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959029475}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.169, y: 0.029, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 615092004}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &972693192
 GameObject:
@@ -115665,6 +115712,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   detectionRange: 2
+  maxHealth: 50
+  currentHealth: 0
+  damage: 10
+  attackCooldown: 1
+  knockbackForce: 4
+  knockbackDuration: 0.15
   target: {fileID: 294707671}
 --- !u!95 &1082708929
 Animator:
@@ -115840,6 +115893,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   detectionRange: 1.4
+  maxHealth: 50
+  currentHealth: 0
+  damage: 10
+  attackCooldown: 1
+  knockbackForce: 4
+  knockbackDuration: 0.15
   target: {fileID: 294707671}
 --- !u!1 &1181585086
 GameObject:
@@ -116112,6 +116171,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   detectionRange: 1.4
+  maxHealth: 50
+  currentHealth: 0
+  damage: 10
+  attackCooldown: 1
+  knockbackForce: 4
+  knockbackDuration: 0.15
   target: {fileID: 294707671}
 --- !u!1 &1341803506
 GameObject:
@@ -116485,6 +116550,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   detectionRange: 1.4
+  maxHealth: 50
+  currentHealth: 0
+  damage: 10
+  attackCooldown: 1
+  knockbackForce: 4
+  knockbackDuration: 0.15
   target: {fileID: 615092004}
 --- !u!1 &1705472053
 GameObject:
@@ -176114,6 +176185,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: blue_slime_38
       objectReference: {fileID: 0}
+    - target: {fileID: 481419595689121646, guid: 993848130deded94080292bda190e288, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 2207713441607483581, guid: 993848130deded94080292bda190e288, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.744
@@ -176158,6 +176233,14 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 615092004}
+    - target: {fileID: 9002802318302023773, guid: 993848130deded94080292bda190e288, type: 3}
+      propertyPath: maxHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002802318302023773, guid: 993848130deded94080292bda190e288, type: 3}
+      propertyPath: attackCooldown
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
