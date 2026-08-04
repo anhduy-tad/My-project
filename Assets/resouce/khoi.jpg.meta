@@ -1,0 +1,4690 @@
+fileFormatVersion: 2
+guid: 6c139461b470b574b80336e7fb9edf2a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: khoi_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 796
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d87e6523b1c99f8418372dd4065fa875
+      internalID: 1594981615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 796
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5abd48dc388ddc4e9e6306db6676781
+      internalID: 1062609437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 796
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0003d414ddda8d54da147730c814a43d
+      internalID: 1185109128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 796
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 917dcb873f902f949922eb483fe7aa7d
+      internalID: 2114629512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 796
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba41a3e8f38399a459b36ed42632db54
+      internalID: 439424611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 796
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81a15165be89b3e4e86bd0e2aae81822
+      internalID: -1290910641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 796
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3612187367f048e40b8f8e25b157908e
+      internalID: -489698510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 796
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5167c5889e2ddb84b92165ef73832cc4
+      internalID: -661272816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 796
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2462967a8856c5e4b8857a97b61c5642
+      internalID: -348437434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 796
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb4c43be5fe0f924fbc525c534fda0de
+      internalID: -1024215078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 796
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21eb90fb773b9a242a17b9af879aba8d
+      internalID: -1871313177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_11
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 796
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22dcd4059867df64d8608a3cad063ad8
+      internalID: -1593530872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_12
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 796
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fce90a7fa1a15114abcf4d5d3160c540
+      internalID: -1671918112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_13
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 796
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb99918cf1abed44890a599ac5274c98
+      internalID: 2008757000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_14
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 796
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88a4f39c11590f04abc0cee13644b299
+      internalID: -2063214096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_15
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 796
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c747677fb1004f643bedf7c72e8a6450
+      internalID: -1264905062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 732
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec19ade4fa1ece74fb3632a848e1bb6c
+      internalID: -1610054282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_17
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 732
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83bcbf421a31736499a6ecb2c691e6fe
+      internalID: 890948960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_18
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 732
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67e3a88ffe76f0b43b9d6ed3d1a00258
+      internalID: 2016688907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_19
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 732
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb75543c2421a9a4196b9e92e4703b0f
+      internalID: -1241264986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_20
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 732
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6195e37de247c764ca37df24ab30d3f6
+      internalID: 1114578070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_21
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 732
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce4e8ea10c30d504c841f9b35a5d9a47
+      internalID: -1442211803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_22
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 732
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 330bc68e5d4af07409c545725d2d5f9d
+      internalID: 1020595991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_23
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 732
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c3a7d2a43a2e7246a111fff56e3efb7
+      internalID: -615175093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_24
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 732
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb10f0412b5c4934d898c0067fe70cd4
+      internalID: -921698344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_25
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 732
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 715cfbd22149ce545b6e68cbe9bf778a
+      internalID: 2066038670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_26
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 732
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42053d1e4c1c39549b0bebb28e97637d
+      internalID: 1872066877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_27
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 732
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd911e1edfea7cb478ed018f91207c3c
+      internalID: 2053020420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_28
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 732
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07cdef48fe0c087478a996f03fcbba60
+      internalID: -1441096137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_29
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 732
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0255dd268106b4240b7273b1ad21580a
+      internalID: -1980840686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_30
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 732
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 085a1cb8198f25d4eacd47dc1531d9e9
+      internalID: 1394665094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_31
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 732
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 889ed1b07861f2445bf50245db06ee5e
+      internalID: 1963460131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 668
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a8fffa6088cce14dbd669481f4a3aef
+      internalID: 827908331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_33
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 668
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66821ec439d2da94e96cf104a14f26eb
+      internalID: 1643409217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_34
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 668
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e66b9026dbbed34682a94f77447e3c4
+      internalID: -2130825448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_35
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 668
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 930fc7ac9c6e76c4d91223fac47e26d9
+      internalID: -433150111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_36
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 668
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e29a2a5c3932d524897ccee0b0fff43f
+      internalID: 1800983246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_37
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 668
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4354dec621c7596428f1e0462a7c1f29
+      internalID: -1219418066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_38
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 668
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92065869b60ac9f4581d793b6f8831ec
+      internalID: 2078681713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_39
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 668
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e43c40ab66915a8438151de9d43265c5
+      internalID: -1318981510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_40
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 668
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d07176ff8171514ea8aa782fb675f0e
+      internalID: -390851903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_41
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 668
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecf2f5a3eec2432419589710009aed3c
+      internalID: 1555872405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_42
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 668
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 270173cb6fbc1024391f9cf84c4b0bcb
+      internalID: 2014157655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_43
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 668
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9625772a53bd14d4d9a4514e5c629a4e
+      internalID: -1739767140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_44
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 668
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98c058117cb6dc944a6c275d9e3369fd
+      internalID: 1759120703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_45
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 668
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26c70f60e71f19d4ead7bd609037b3f9
+      internalID: 1281328219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_46
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 668
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc1c2c429e7a85541bc01eab207cb082
+      internalID: 909196546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_47
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 668
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90ceffe57f32c194cb0b06f1ea694f70
+      internalID: -1687255872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 604
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38ea979836ec642428b03ad627ab8f72
+      internalID: 553673228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_49
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 604
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 462189d63aec0f146ba23c5cd12f0071
+      internalID: 90633156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_50
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 604
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ab7310f5ca05414aa7f189c3e426532
+      internalID: 953663251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_51
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 604
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3e2927b9214fc943a151286501c5919
+      internalID: -1034399310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_52
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 604
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d18f92388749b6b4cb4e112a1eff747d
+      internalID: -697114212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_53
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 604
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2990abb6e431914bb45b3c6ce7408a5
+      internalID: 718981027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_54
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 604
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 804ad604a3a339a4991e0453306c08ed
+      internalID: 1241875348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_55
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 604
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27284c5b7ad623046b741cf5aec8bf4e
+      internalID: -1784077351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_56
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 604
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf71c8b2be2a1b44cbbef473a6d84bbc
+      internalID: -136601103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_57
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 604
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6a81e6a721c2d447b94f477be8f7381
+      internalID: -1658872919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_58
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 604
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31a4048e2c7279c49838f9512ee52211
+      internalID: 856306490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_59
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 604
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b65df996dd21d26428adf068b22ef660
+      internalID: -1274123965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_60
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 604
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc0aa16b77b38f04cb1093e195f5d568
+      internalID: 1641983949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_61
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 604
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fe7038577ae8d7439206613504008d5
+      internalID: -193594643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_62
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 604
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ff921205a4221347ab3844dddef77cd
+      internalID: -377074683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_63
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 604
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb68b0cc93cd3d54d9d5e9a376b9aeb0
+      internalID: 56899444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 540
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb69e1980804a464b8409185a0bf32ad
+      internalID: -1665533535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_65
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 540
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30352040020ae8444956854e5e44ee4b
+      internalID: -1767385370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_66
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 540
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53c6e66df9d4143479d5917304977350
+      internalID: -1559805811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_67
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 540
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8908be651e633054a9d6145019439a60
+      internalID: 1982330882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_68
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 540
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cc67c378b961344ebaf6973d3f57118
+      internalID: -576619989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_69
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 540
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 160388aaf99d5b642bc9a97ae888e895
+      internalID: -1066740202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_70
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 540
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14096bc322875a540989606d3efe8ad6
+      internalID: 936657652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_71
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 540
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa730e2f7ee30364595eef1e201cc725
+      internalID: -95537873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_72
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 540
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 673a396e5c6c5cf4b913c617366ff349
+      internalID: -1446926601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_73
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 540
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65ec3b85c9963b8419b60c1510b43aea
+      internalID: -1302362546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_74
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 540
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1d80ad42b78ac14580a459d5a78cd23
+      internalID: 123565192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_75
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 540
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b153239c4a6a51044964fa1ba2b9b09f
+      internalID: 1714947461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_76
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 540
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa8b2950cbde09341be19873f1c7d738
+      internalID: 213991252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_77
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 540
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef5ed3e9fab8a584c8358e387c438610
+      internalID: -1239076062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_78
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 540
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8599b2afcc353e44ac114172f227577
+      internalID: -517091841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_79
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 540
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 820a31999f8c3e4408eca8a9154a6e28
+      internalID: 1603646408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 476
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8df45a273b2e48146a0a1289367c0baf
+      internalID: -691871946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_81
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 476
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1e925021c9d6db45a5526093d6b14c2
+      internalID: -103551596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_82
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 476
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bded344c63a8c0940889725437fabb6f
+      internalID: -1834571934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_83
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 476
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 415073a69075a2e4ca557875aaae3736
+      internalID: -2121712917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_84
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 476
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 422707fa7925ec144bc31cc4b1232156
+      internalID: -1786509140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_85
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 476
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04f2b92683849f748af82b0f1fa2f7b1
+      internalID: -630806271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_86
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 476
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af8113756bc9ee34da03362f4c9ce803
+      internalID: -852515967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_87
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 476
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0f204aa9e4d0e3488fbf076ceb620d0
+      internalID: -1939689385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_88
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 476
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b332ecff19097ae45bfc53edf71f1190
+      internalID: 1099452856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_89
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 476
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a49d7b0201255134cb0cd271dd6614d4
+      internalID: 309835459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_90
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 476
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 166c168a027ed494fa9ac5e3ecb7d893
+      internalID: -582728256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_91
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 476
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 685af87da827bf4429f8171dc9815682
+      internalID: -314255310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_92
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 476
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a986c02c256695945b4ddfee553c3678
+      internalID: 203861860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_93
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 476
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63e734d2789cbb54f8f03ab324651844
+      internalID: -1139469408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_94
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 476
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 227facb3456cf1945817a364751f5485
+      internalID: 628879264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_95
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 476
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e3b2014ba251d146a47d9ac1a278fe7
+      internalID: 785205727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_96
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 412
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c44c9ea52a43c8f4a9e585eb337e2ff2
+      internalID: 424093695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_97
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 412
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8da4c3ca777c55544ba4bd31017d42e8
+      internalID: 1934820763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_98
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 412
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb5babd7fb68ad544873b6960f93c3be
+      internalID: 1513676807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_99
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 412
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb5fda1e7afe8d54d89f3b21901dbb25
+      internalID: 83767561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_100
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 412
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ff859f5025b65c49b4beeb6d3c4a0f0
+      internalID: -254995756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_101
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 412
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c639e83615a7aa544aca6025bf4cbb06
+      internalID: -266674446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_102
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 412
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2da9af56369cae24da33e386f0820a6e
+      internalID: 814494519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_103
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 412
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3db3021112bbfb489beadc3a7c10766
+      internalID: -89861940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_104
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 412
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 641294f9c4bee4b4597cfb2be5e4a078
+      internalID: 1256602077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_105
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 412
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6b78f906da698149adba0ff31a3948a
+      internalID: -399544902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_106
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 412
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bea68282de4ae544a4eb22fed500453
+      internalID: -543317160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_107
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 412
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20491ed231cf74f44b41edfa00261ba4
+      internalID: -669172019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_108
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 412
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ecc22c602cd67f49966ab0f75d69135
+      internalID: -1043954486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_109
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 412
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7def5c537e2e5af4f80141e222bc172b
+      internalID: -2101388587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_110
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 412
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1db2c26fb31c4ed48b6b84a138688c29
+      internalID: -443692579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_111
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 412
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47829510ce6970e4ea994d11d8697dad
+      internalID: 1180146051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_112
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 348
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe0d63088a4ff274eaa1ad881a3c893e
+      internalID: -1270036212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_113
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 348
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed1e7b73539f6f14cb8f5923ad97bec3
+      internalID: 1858405301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_114
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 348
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24d76c538570bb34ca840137c53e1d0c
+      internalID: 1852306018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_115
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 348
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96938a36eb910e249b0a56d7cc69f981
+      internalID: 952271506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_116
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 348
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce8afc416e1669a4c8c5bc6e2d6c7f4d
+      internalID: 1793216148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_117
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 348
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d59c20a172c8744d8f94d7f7ce8867f
+      internalID: -239206959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_118
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 348
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7bd2aa7ce3eb864494330d334b20de3
+      internalID: -562005795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_119
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 348
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3243c2f68b95354c9f67932d6e695a1
+      internalID: 1718778798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_120
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 348
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a549c18fab17e844836b5db30383b28
+      internalID: 220868035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_121
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 348
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f530cc0f535e314393a1c81ef8840b4
+      internalID: -1871856234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_122
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 348
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94f4bc3cb7f29f94b84264b783f4f81b
+      internalID: 82221025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_123
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 348
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a2bc11be3c034b4098ce48dc7914330
+      internalID: 1691981519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_124
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 348
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 489d768c2f913f14482c7fa134655510
+      internalID: -199574591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_125
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 348
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52737db2af8eeb44eb82198db5f05efd
+      internalID: 890822582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_126
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 348
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9e03838821c2bf44b1c682d727c5011
+      internalID: -763131801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_127
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 348
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9de5811c59dfd08438def4d31ca039a4
+      internalID: 2068244598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_128
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 284
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9da6d34dea8f9f4fad4026a7f1c5cc8
+      internalID: 992084301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_129
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 284
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c31bbf53026e2648b8fe0f48d7f9563
+      internalID: -1433011102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_130
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 284
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c321799af423131478b3fe90d23a84e2
+      internalID: -96192307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_131
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 284
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 145fe8559633fcb45950cfe5d6c1a561
+      internalID: -206644192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_132
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 284
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c079eaebbef41a842a73567cf8c67ddd
+      internalID: -838820838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_133
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 284
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 281cd5b904dfdff47866ad5fcd814dd7
+      internalID: -1599931699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_134
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 284
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c47301083cbad846a57e6d9031dfcde
+      internalID: -392973182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_135
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 284
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be451a5cce433ff4f92254568c96fbc8
+      internalID: 1634811792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_136
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 284
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49836a95c8f88544eba7357e90de1fdc
+      internalID: 1198631639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_137
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 284
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0216fb0a4a344ce46b847fa20b733dee
+      internalID: -407575766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_138
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 284
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fddfd1de520cf740bdfc8297097dcbc
+      internalID: 1924124208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_139
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 284
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db36d5da33eba124d8f3c57528f0c7bf
+      internalID: -592110367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_140
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 284
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b4ecb5c85a42f840a707f473e63924f
+      internalID: 1732150190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_141
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 284
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc54a0175914dd145b9421b9ff4a8081
+      internalID: 595592324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_142
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 284
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 617592e1a665433458941bde1b2b02e5
+      internalID: -52148260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_143
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 284
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 378d8c63125bd204da6805b5e85defdd
+      internalID: 1075566137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_144
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 220
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aff4767921931e645998bc3d5db58cd3
+      internalID: -133396124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_145
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 220
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e1489231b07b864a8c2ebe1920b281b
+      internalID: -1063863700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_146
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 220
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dbe5caa214676041b69a6eb87d86dde
+      internalID: -1819263256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_147
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 220
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a517d0597c56124bb4e619639e15f1f
+      internalID: -2146318539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_148
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 220
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cfdfa44d8eb0f8428a99ae4d9a965e9
+      internalID: 1277162877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_149
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 220
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 028ba42883ad44e4eaed53b4d736dff1
+      internalID: 686558563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_150
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 220
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd6cdfc20be69b543840f557598ab1be
+      internalID: -1529877141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_151
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 220
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7b11a4420c3f0547ad58cd68c9f9e76
+      internalID: 725160046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_152
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 220
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba2c30c4a2a690747bb6b3808bc6e8b0
+      internalID: 149687622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_153
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 220
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92ab5db6327033243ab8075c25852508
+      internalID: -77893077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_154
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 220
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75b60f858bc007e4ebc6ec10838b4e5b
+      internalID: 1323432653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_155
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 220
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82f155cac8bba194bb08944ebd4ddcbf
+      internalID: 52672920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_156
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 220
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 605482d3aba372140bdfc08ff7f02f06
+      internalID: -1548092229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_157
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 220
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4edde3d6716d7f748a96a4134c665f9b
+      internalID: 1575269639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_158
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 220
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27670394f58503649802ab7ec8444383
+      internalID: -1873369036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_159
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 220
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33ecc22f0d35a3d4ebaa299587f90ff3
+      internalID: 1501482521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_160
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 156
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1148cf6b5890ca342869fe0d9a833c0a
+      internalID: -146765669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_161
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 156
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 718e167f4194beb44be3f97303b11440
+      internalID: -826382741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_162
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 156
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66968c4743567e74b83458368786a72a
+      internalID: 2077391357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_163
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 156
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ba1f6a101aed2c4ab79adeaedd582a0
+      internalID: -1403927617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_164
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 156
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdf760b2b4063e147a0cf44d6e5380b5
+      internalID: 736482186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_165
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 156
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f50364eac54cba4f9adc70b579c26fd
+      internalID: -1793519269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_166
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 156
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cad69ff9ef66f84e9e688b6f156caa4
+      internalID: 1133400725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_167
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 156
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2793278485e38c0469288115772c107f
+      internalID: 281100219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_168
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 156
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 041752ace37ff1849aad5a9afce3f6eb
+      internalID: 683088844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_169
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 156
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ca76338d103e1348bc427aa1010effc
+      internalID: -687676925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_170
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 156
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aa803c842a9c78488877d3044398768
+      internalID: -1593569995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_171
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 156
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 140a0209a69ad1b49a9b9aa539a18f17
+      internalID: -1124117575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_172
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 156
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38164463b9f01764f825f07b3f6f6bfa
+      internalID: -904993196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_173
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 156
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3dc3970f5b8ce24aacb09d27476bb4c
+      internalID: 1237414419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_174
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 156
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdff71a407e53c045a314ef75c861139
+      internalID: 1751623728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_175
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 156
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3acaa37d9c25f947bb90232dbd9c388
+      internalID: -89792428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_176
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 92
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a357a594bee250a4c95e966f5ccc7ae6
+      internalID: 681185728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_177
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 92
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 317b43857512a264b9984fbf406929b1
+      internalID: 799729787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_178
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 92
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52fe1c7921cd2034f80badbe3e5112f8
+      internalID: -2025161445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_179
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 92
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c29e96aa768b944d982c35ec470c065
+      internalID: -252745128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_180
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 92
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a0a8ea76b884da458f1b53ec6f3927a
+      internalID: -829067266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_181
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 92
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5425f3cc44b54ee4b9644c30e5be9e31
+      internalID: -1537146228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_182
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 92
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4529e93760da8fa4e9a968b3992cc96e
+      internalID: 604145261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_183
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 92
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59891586a36778f499e2e530a5ed6d09
+      internalID: -1204099356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_184
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 92
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 785b4e9437defd141a9affe74c34343d
+      internalID: 1106210257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_185
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 92
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c17a927c33a4a96468fefe0f4dcf8455
+      internalID: 913135237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_186
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 92
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f093f5dfab822842a426c71afa017c7
+      internalID: -859637005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_187
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 92
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23f27f39322e4c14e8922734e196f22c
+      internalID: 1756191809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_188
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 92
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d77e72bfc3389574dad8e57e83edefc7
+      internalID: -362109404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_189
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 92
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c95b8f05d372cc4ca82488dd23dcfa5
+      internalID: -2014641623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_190
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 92
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0c256416d213864d84623876a759261
+      internalID: 256766158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_191
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 92
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07144a5cdb88a8a44bd6aae3cf4461be
+      internalID: -2144186747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_192
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 28
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 497c4da65d26e1f4ead8fadcb1e547bd
+      internalID: -921706740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_193
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 28
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eff955bcdb8d30841b7a72ab20815e4e
+      internalID: -1343626284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_194
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 28
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89f24a6f2582c5b4c801f9388d2efdb8
+      internalID: 597094478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_195
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 28
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ef3d20b4e42ed24c997508e3da9872a
+      internalID: 979304588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_196
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 28
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa97357a809265e41b7e92244a65813c
+      internalID: 1289150562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_197
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 28
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ea0b73ac08038f44bf36f9238a50f0e
+      internalID: -1770052518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_198
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 28
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aac28b41d62ca34793a3fde364ce6a1
+      internalID: -586587652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_199
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 28
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d29436139e90a242b9cb7098a06fed5
+      internalID: 1688013830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_200
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 28
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bf7143170befe547ba15efc2041e77a
+      internalID: -2134694343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_201
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 28
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eab7214d4827e89489a917fee783dc27
+      internalID: 330137460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_202
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 28
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b280ceb08db59054cb8fdeb5abfc9682
+      internalID: -644271631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_203
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 28
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d648a116058f35440a41868f0f44851f
+      internalID: -21907951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_204
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 28
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4afff9214e7a2104c8c8f3fb31348c77
+      internalID: -728565409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_205
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 28
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99326459d966f5143b7aa5742f93d2a5
+      internalID: -1007714627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_206
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 28
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69ed8fd1bcc85464b908abc9b0ed37a1
+      internalID: 1110693321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khoi_207
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 28
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f21781b7cf3c6f845a084bd79fa90006
+      internalID: -1858413881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      khoi_0: 1594981615
+      khoi_1: 1062609437
+      khoi_10: -1871313177
+      khoi_100: -254995756
+      khoi_101: -266674446
+      khoi_102: 814494519
+      khoi_103: -89861940
+      khoi_104: 1256602077
+      khoi_105: -399544902
+      khoi_106: -543317160
+      khoi_107: -669172019
+      khoi_108: -1043954486
+      khoi_109: -2101388587
+      khoi_11: -1593530872
+      khoi_110: -443692579
+      khoi_111: 1180146051
+      khoi_112: -1270036212
+      khoi_113: 1858405301
+      khoi_114: 1852306018
+      khoi_115: 952271506
+      khoi_116: 1793216148
+      khoi_117: -239206959
+      khoi_118: -562005795
+      khoi_119: 1718778798
+      khoi_12: -1671918112
+      khoi_120: 220868035
+      khoi_121: -1871856234
+      khoi_122: 82221025
+      khoi_123: 1691981519
+      khoi_124: -199574591
+      khoi_125: 890822582
+      khoi_126: -763131801
+      khoi_127: 2068244598
+      khoi_128: 992084301
+      khoi_129: -1433011102
+      khoi_13: 2008757000
+      khoi_130: -96192307
+      khoi_131: -206644192
+      khoi_132: -838820838
+      khoi_133: -1599931699
+      khoi_134: -392973182
+      khoi_135: 1634811792
+      khoi_136: 1198631639
+      khoi_137: -407575766
+      khoi_138: 1924124208
+      khoi_139: -592110367
+      khoi_14: -2063214096
+      khoi_140: 1732150190
+      khoi_141: 595592324
+      khoi_142: -52148260
+      khoi_143: 1075566137
+      khoi_144: -133396124
+      khoi_145: -1063863700
+      khoi_146: -1819263256
+      khoi_147: -2146318539
+      khoi_148: 1277162877
+      khoi_149: 686558563
+      khoi_15: -1264905062
+      khoi_150: -1529877141
+      khoi_151: 725160046
+      khoi_152: 149687622
+      khoi_153: -77893077
+      khoi_154: 1323432653
+      khoi_155: 52672920
+      khoi_156: -1548092229
+      khoi_157: 1575269639
+      khoi_158: -1873369036
+      khoi_159: 1501482521
+      khoi_16: -1610054282
+      khoi_160: -146765669
+      khoi_161: -826382741
+      khoi_162: 2077391357
+      khoi_163: -1403927617
+      khoi_164: 736482186
+      khoi_165: -1793519269
+      khoi_166: 1133400725
+      khoi_167: 281100219
+      khoi_168: 683088844
+      khoi_169: -687676925
+      khoi_17: 890948960
+      khoi_170: -1593569995
+      khoi_171: -1124117575
+      khoi_172: -904993196
+      khoi_173: 1237414419
+      khoi_174: 1751623728
+      khoi_175: -89792428
+      khoi_176: 681185728
+      khoi_177: 799729787
+      khoi_178: -2025161445
+      khoi_179: -252745128
+      khoi_18: 2016688907
+      khoi_180: -829067266
+      khoi_181: -1537146228
+      khoi_182: 604145261
+      khoi_183: -1204099356
+      khoi_184: 1106210257
+      khoi_185: 913135237
+      khoi_186: -859637005
+      khoi_187: 1756191809
+      khoi_188: -362109404
+      khoi_189: -2014641623
+      khoi_19: -1241264986
+      khoi_190: 256766158
+      khoi_191: -2144186747
+      khoi_192: -921706740
+      khoi_193: -1343626284
+      khoi_194: 597094478
+      khoi_195: 979304588
+      khoi_196: 1289150562
+      khoi_197: -1770052518
+      khoi_198: -586587652
+      khoi_199: 1688013830
+      khoi_2: 1185109128
+      khoi_20: 1114578070
+      khoi_200: -2134694343
+      khoi_201: 330137460
+      khoi_202: -644271631
+      khoi_203: -21907951
+      khoi_204: -728565409
+      khoi_205: -1007714627
+      khoi_206: 1110693321
+      khoi_207: -1858413881
+      khoi_21: -1442211803
+      khoi_22: 1020595991
+      khoi_23: -615175093
+      khoi_24: -921698344
+      khoi_25: 2066038670
+      khoi_26: 1872066877
+      khoi_27: 2053020420
+      khoi_28: -1441096137
+      khoi_29: -1980840686
+      khoi_3: 2114629512
+      khoi_30: 1394665094
+      khoi_31: 1963460131
+      khoi_32: 827908331
+      khoi_33: 1643409217
+      khoi_34: -2130825448
+      khoi_35: -433150111
+      khoi_36: 1800983246
+      khoi_37: -1219418066
+      khoi_38: 2078681713
+      khoi_39: -1318981510
+      khoi_4: 439424611
+      khoi_40: -390851903
+      khoi_41: 1555872405
+      khoi_42: 2014157655
+      khoi_43: -1739767140
+      khoi_44: 1759120703
+      khoi_45: 1281328219
+      khoi_46: 909196546
+      khoi_47: -1687255872
+      khoi_48: 553673228
+      khoi_49: 90633156
+      khoi_5: -1290910641
+      khoi_50: 953663251
+      khoi_51: -1034399310
+      khoi_52: -697114212
+      khoi_53: 718981027
+      khoi_54: 1241875348
+      khoi_55: -1784077351
+      khoi_56: -136601103
+      khoi_57: -1658872919
+      khoi_58: 856306490
+      khoi_59: -1274123965
+      khoi_6: -489698510
+      khoi_60: 1641983949
+      khoi_61: -193594643
+      khoi_62: -377074683
+      khoi_63: 56899444
+      khoi_64: -1665533535
+      khoi_65: -1767385370
+      khoi_66: -1559805811
+      khoi_67: 1982330882
+      khoi_68: -576619989
+      khoi_69: -1066740202
+      khoi_7: -661272816
+      khoi_70: 936657652
+      khoi_71: -95537873
+      khoi_72: -1446926601
+      khoi_73: -1302362546
+      khoi_74: 123565192
+      khoi_75: 1714947461
+      khoi_76: 213991252
+      khoi_77: -1239076062
+      khoi_78: -517091841
+      khoi_79: 1603646408
+      khoi_8: -348437434
+      khoi_80: -691871946
+      khoi_81: -103551596
+      khoi_82: -1834571934
+      khoi_83: -2121712917
+      khoi_84: -1786509140
+      khoi_85: -630806271
+      khoi_86: -852515967
+      khoi_87: -1939689385
+      khoi_88: 1099452856
+      khoi_89: 309835459
+      khoi_9: -1024215078
+      khoi_90: -582728256
+      khoi_91: -314255310
+      khoi_92: 203861860
+      khoi_93: -1139469408
+      khoi_94: 628879264
+      khoi_95: 785205727
+      khoi_96: 424093695
+      khoi_97: 1934820763
+      khoi_98: 1513676807
+      khoi_99: 83767561
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
