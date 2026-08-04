@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     [Header("Combat Settings")]
     public Transform attackPoint;      // Điểm xuất phát của đòn đánh (kéo 1 GameObject con vào)
     public float attackRange = 0.5f;   // Bán kính vùng chém
-    public LayerMask enemyLayers;      // Chọn Layer 'Enemy' để chém trúng quái
+    public LayerMask enemyLayers;      // Chọn Layer chứa Quái và Boss
     public float attackDamage = 20f;   // Sát thương Player gây ra
     public float attackRate = 2f;      // Số lần chém tối đa trong 1 giây
     private float nextAttackTime = 0f;
@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
     }
 
     // ==========================================
-    // CƠ CHẾ TẤN CÔNG (CHÉM ENEMY)
+    // CƠ CHẾ TẤN CÔNG (CHÉM ENEMY & BOSS)
     // ==========================================
     void Attack()
     {
@@ -120,16 +120,26 @@ public class Player : MonoBehaviour
             return;
         }
 
-        // Quét tất cả Enemy trong vùng chém
+        // Quét tất cả Enemy/Boss trong vùng chém
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-        // Gây sát thương cho từng Enemy trúng đòn
+        // Gây sát thương cho từng kẻ địch trúng đòn
         foreach (Collider2D enemy in hitEnemies)
         {
+            // 1. Kiểm tra nếu là Boss
+            Boss2D boss = enemy.GetComponent<Boss2D>();
+            if (boss != null)
+            {
+                boss.TakeDamage(attackDamage);
+                Debug.Log($"⚔️ Player đã chém trúng BOSS {enemy.name}!");
+            }
+
+            // 2. Kiểm tra nếu là Quái thường
             Enemy enemyScript = enemy.GetComponent<Enemy>();
             if (enemyScript != null)
             {
                 enemyScript.TakeDamage(attackDamage);
+                Debug.Log($"⚔️ Player đã chém trúng Quái {enemy.name}!");
             }
         }
     }

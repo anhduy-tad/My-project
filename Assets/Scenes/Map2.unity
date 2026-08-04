@@ -68962,16 +68962,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -10, y: 2, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 36
-      m_TileSpriteIndex: 36
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 26, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -69877,16 +69867,6 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 10
       m_TileSpriteIndex: 10
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -15, y: 3, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 36
-      m_TileSpriteIndex: 36
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -112496,7 +112476,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: b9a58675895f8384cbfd2c3c79154378, type: 2}
   - m_RefCount: 9
     m_Data: {fileID: 11400000, guid: 65b34831a02654f42940b8c0a25dfb91, type: 2}
-  - m_RefCount: 16
+  - m_RefCount: 14
     m_Data: {fileID: 11400000, guid: 40c442079c6903a488b2c1885200bb88, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1081
@@ -112571,10 +112551,10 @@ Tilemap:
     m_Data: {fileID: 1049968417, guid: 3ccd3210bad8cbc4a828f4e70f40eb81, type: 3}
   - m_RefCount: 9
     m_Data: {fileID: -1636258040, guid: 3ccd3210bad8cbc4a828f4e70f40eb81, type: 3}
-  - m_RefCount: 16
+  - m_RefCount: 14
     m_Data: {fileID: -1739303038, guid: 3ccd3210bad8cbc4a828f4e70f40eb81, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 11205
+  - m_RefCount: 11203
     m_Data:
       e00: 1
       e01: 0
@@ -112593,7 +112573,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 11205
+  - m_RefCount: 11203
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -112857,7 +112837,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.7119007, y: 2.1317976, z: -10}
+  m_LocalPosition: {x: -7.8409004, y: 2.2367973, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -112961,7 +112941,7 @@ GameObject:
   - component: {fileID: 615092006}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113048,7 +113028,7 @@ Transform:
   m_GameObject: {fileID: 615092001}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.951, y: 0.395, z: -0.076695524}
+  m_LocalPosition: {x: -12.08, y: 0.5, z: -0.076695524}
   m_LocalScale: {x: 1.7283, y: 1.7283, z: 1.7283}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -113139,7 +113119,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.021913864, y: 0.00958715}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -113150,7 +113130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.19}
+  m_Size: {x: 0.24382775, y: 0.2091743}
   m_EdgeRadius: 0
 --- !u!1 &619394800
 GameObject:
@@ -113299,7 +113279,7 @@ Transform:
   m_GameObject: {fileID: 793380606}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.7119007, y: 2.1317976, z: -10}
+  m_LocalPosition: {x: -7.8409004, y: 2.2367973, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -115687,7 +115667,6 @@ GameObject:
   - component: {fileID: 1082708931}
   - component: {fileID: 1082708930}
   - component: {fileID: 1082708929}
-  - component: {fileID: 1082708928}
   - component: {fileID: 1082708933}
   - component: {fileID: 1082708932}
   - component: {fileID: 1082708934}
@@ -115698,27 +115677,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1082708928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1082708927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3dbdfdf1ce6fbb4bb0aabddf52899da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 2
-  detectionRange: 2
-  maxHealth: 50
-  currentHealth: 0
-  damage: 10
-  attackCooldown: 1
-  knockbackForce: 4
-  knockbackDuration: 0.15
-  target: {fileID: 294707671}
 --- !u!95 &1082708929
 Animator:
   serializedVersion: 5
@@ -115801,8 +115759,8 @@ Transform:
   m_GameObject: {fileID: 1082708927}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.156, y: -2.37, z: -0.076695524}
-  m_LocalScale: {x: 1.1273, y: 1.1273, z: 1.1273}
+  m_LocalPosition: {x: 29.3283, y: -2.4174, z: -0.076695524}
+  m_LocalScale: {x: 1.0076934, y: 1.0681168, z: 1.1273}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 310679463}
@@ -115836,10 +115794,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06835045, y: -0.11050904}
+  m_Offset: {x: -0.02841656, y: -0.20136964}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -115850,7 +115808,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.095217, y: 1.0859175}
+  m_Size: {x: 0.8932041, y: 0.90419626}
   m_EdgeRadius: 0
 --- !u!50 &1082708933
 Rigidbody2D:
@@ -115860,7 +115818,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1082708927}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -115888,18 +115846,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1082708927}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3dbdfdf1ce6fbb4bb0aabddf52899da, type: 3}
+  m_Script: {fileID: 11500000, guid: 5001a729d8fa1a84381e3638e101e072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  detectionRange: 1.4
-  maxHealth: 50
-  currentHealth: 0
-  damage: 10
-  attackCooldown: 1
-  knockbackForce: 4
-  knockbackDuration: 0.15
-  target: {fileID: 294707671}
+  maxHealth: 200
+  currentHealth: 10
+  moveSpeed: 3
+  isPhaseTwo: 0
+  detectRange: 10
+  attackRange: 1
+  attackCooldown: 2
+  attackPoint: {fileID: 0}
+  attackRadius: 1.2
+  damagePhaseOne: 20
+  damagePhaseTwo: 35
+  telegraphTime: 0.5
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  player: {fileID: 615092004}
 --- !u!1 &1181585086
 GameObject:
   m_ObjectHideFlags: 0
@@ -176240,6 +176205,10 @@ PrefabInstance:
     - target: {fileID: 9002802318302023773, guid: 993848130deded94080292bda190e288, type: 3}
       propertyPath: attackCooldown
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002802318302023773, guid: 993848130deded94080292bda190e288, type: 3}
+      propertyPath: knockbackForce
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
