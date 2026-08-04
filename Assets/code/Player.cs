@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public float maxHealth = 100f;
     public float currentHealth;
     public bool isDead = false;
+    public HealthBar healthBar; // <--- ĐÃ THÊM: Kéo GameObject Thanh Máu vào đây
 
     [Header("Combat Settings")]
     public Transform attackPoint;      // Điểm xuất phát của đòn đánh (kéo 1 GameObject con vào)
@@ -36,6 +37,12 @@ public class Player : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
 
         currentHealth = maxHealth;
+
+        // <--- ĐÃ THÊM: Cài đặt máu tối đa lên UI khi vào Game
+        if (healthBar != null)
+        {
+            healthBar.SetMaxHealth(maxHealth);
+        }
 
         if (rb != null)
         {
@@ -154,6 +161,12 @@ public class Player : MonoBehaviour
         currentHealth -= damageAmount;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
 
+        // <--- ĐÃ THÊM: Cập nhật máu rút trên UI
+        if (healthBar != null)
+        {
+            healthBar.SetHealth(currentHealth);
+        }
+
         Debug.Log($"💥 Player bị đánh! Mất {damageAmount} máu. Máu còn lại: {currentHealth}/{maxHealth}");
 
         if (anim != null) anim.SetTrigger("Hurt");
@@ -182,12 +195,21 @@ public class Player : MonoBehaviour
         isKnockedBack = false;
     }
 
+    // ==========================================
+    // CƠ CHẾ HỒI MÁU
+    // ==========================================
     public void Heal(float healAmount)
     {
         if (isDead) return;
 
         currentHealth += healAmount;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
+
+        // <--- ĐÃ THÊM: Cập nhật máu tăng trên UI
+        if (healthBar != null)
+        {
+            healthBar.SetHealth(currentHealth);
+        }
     }
 
     private void Die()
