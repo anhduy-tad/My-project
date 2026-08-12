@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2298978596004329286}
   - component: {fileID: 9002802318302023773}
   m_Layer: 8
-  m_Name: New Prefab
+  m_Name: Slime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,7 +117,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481419595689121646}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -193,6 +193,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3dbdfdf1ce6fbb4bb0aabddf52899da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  player: {fileID: 0}
   moveSpeed: 1
-  detectionRange: 1.4
-  target: {fileID: 0}
+  detectRange: 1.4
+  attackRange: 0.5
+  attackRate: 1
+  attackDamage: 10
+  scoreReward: 2
