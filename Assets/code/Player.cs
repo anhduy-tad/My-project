@@ -142,7 +142,7 @@ public class Player : MonoBehaviour
             }
 
             // 2. Kiểm tra nếu là Quái thường
-            Enemy enemyScript = enemy.GetComponent<Enemy>();
+            EnemyAI enemyScript = enemy.GetComponent<EnemyAI>();
             if (enemyScript != null)
             {
                 enemyScript.TakeDamage(attackDamage);
