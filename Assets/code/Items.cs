@@ -9,6 +9,10 @@ public class Item : MonoBehaviour
     public int scoreValue = 2; // Đã đổi giá trị coin mặc định thành 2 điểm
     public float healValue = 20f;
 
+    [Header("--- ÂM THANH NHẶT VẬT PHẨM ---")]
+    public AudioClip collectSound; // Kéo file âm thanh (tiếng nhặt xu/máu) vào đây
+    [Range(0f, 1f)] public float soundVolume = 1f; // Âm lượng tiếng nhặt
+
     [Header("--- HIỆU ỨNG NHÚN NHẢY (SAU KHI RƠI) ---")]
     public bool enableBobbing = true;
     public float bobbingSpeed = 4f;
@@ -85,6 +89,12 @@ public class Item : MonoBehaviour
     // Hàm cộng thưởng cho Player và xóa xu
     public void Collect(Player player)
     {
+        // Phát âm thanh tại vị trí hiện tại (ngay cả khi GameObject bị Destroy vẫn nghe trọn tiếng)
+        if (collectSound != null)
+        {
+            AudioSource.PlayClipAtPoint(collectSound, transform.position, soundVolume);
+        }
+
         if (itemType == ItemType.Score)
         {
             // Cộng 2 điểm vào Player

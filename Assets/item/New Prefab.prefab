@@ -102,6 +102,8 @@ MonoBehaviour:
   itemType: 0
   scoreValue: 2
   healValue: 10
+  collectSound: {fileID: 8300000, guid: 2d1119bcfc37b00479125278b501cc11, type: 3}
+  soundVolume: 0.629
   enableBobbing: 1
   bobbingSpeed: 3
   bobbingAmount: 0.15

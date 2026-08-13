@@ -20,6 +20,12 @@ public class Player : MonoBehaviour
     public float attackRate = 2f;
     private float nextAttackTime = 0f;
 
+    [Header("Audio Settings")]
+    public AudioSource audioSource;
+    public AudioClip attackSound; // File âm thanh tiếng chém
+    public AudioClip hurtSound;   // File âm thanh bị trúng đòn (tùy chọn)
+    public AudioClip dieSound;    // File âm thanh khi chết (tùy chọn)
+
     [Header("Knockback Settings")]
     public float knockbackForce = 5f;
     public float knockbackDuration = 0.2f;
@@ -39,11 +45,26 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
 
+        // Tự động tìm AudioSource nếu chưa kéo vào Inspector
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+
+        // Luôn làm tươi lại máu và trạng thái sống khi bắt đầu
         currentHealth = maxHealth;
+        isDead = false;
+
+        // Tự động tìm HealthBar nếu chưa kéo vào Inspector
+        if (healthBar == null)
+        {
+            healthBar = FindObjectOfType<HealthBar>();
+        }
 
         if (healthBar != null)
         {
             healthBar.SetMaxHealth(maxHealth);
+            healthBar.SetHealth(currentHealth);
         }
 
         if (rb != null)
@@ -120,6 +141,12 @@ public class Player : MonoBehaviour
     {
         if (anim != null) anim.SetTrigger("Attack");
 
+        // PHÁT TIẾNG CHÉM
+        if (audioSource != null && attackSound != null)
+        {
+            audioSource.PlayOneShot(attackSound);
+        }
+
         if (attackPoint == null)
         {
             Debug.LogWarning("⚠️ Chưa kéo AttackPoint vào Player Inspector!");
@@ -144,6 +171,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void TakeDamage(float damageAmount)
+    {
+        TakeDamage(damageAmount, Vector2.zero);
+    }
+
     public void TakeDamage(float damageAmount, Vector2 attackerPosition)
     {
         if (isDead) return;
@@ -151,12 +183,13 @@ public class Player : MonoBehaviour
         currentHealth -= damageAmount;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
 
+        Debug.Log($"💥 Player bị dính đòn! Máu còn lại: {currentHealth}/{maxHealth}");
+
         if (healthBar != null)
         {
             healthBar.SetHealth(currentHealth);
         }
 
-        // Kiểm tra máu nếu hết thì Die, ngược lại thì chạy anim Hurt
         if (currentHealth <= 0f)
         {
             Die();
@@ -164,6 +197,12 @@ public class Player : MonoBehaviour
         else
         {
             if (anim != null) anim.SetTrigger("Hurt");
+
+            // Phát âm thanh khi dính đòn
+            if (audioSource != null && hurtSound != null)
+            {
+                audioSource.PlayOneShot(hurtSound);
+            }
 
             if (rb != null && attackerPosition != Vector2.zero)
             {
@@ -188,33 +227,55 @@ public class Player : MonoBehaviour
     }
 
     // ==========================================
-    // XỬ LÝ KHI PLAYER CHẾT (DIE ANIMATION)
+    // XỬ LÝ KHI PLAYER CHẾT & HIỂN THỊ GAME OVER
     // ==========================================
     private void Die()
     {
-        if (isDead) return; // Tránh gọi Die trùng lặp nhiều lần
+        if (isDead) return;
 
         isDead = true;
         Debug.Log("☠️ Player đã chết!");
+
+        // Phát âm thanh khi chết
+        if (audioSource != null && dieSound != null)
+        {
+            audioSource.PlayOneShot(dieSound);
+        }
 
         // 1. Dừng chuyển động vật lý
         if (rb != null)
         {
             rb.velocity = Vector2.zero;
-            rb.isKinematic = true; // Chuyển sang Kinematic để quái/vật phẩm không xô đẩy xác Player
+            rb.isKinematic = true;
         }
 
-        // 2. Kích hoạt Trigger "Die" trong Animator
+        // 2. Chạy Animation Die
         if (anim != null)
         {
             anim.SetTrigger("Die");
         }
 
-        // 3. Tắt Collider để quái không đánh tiếp và không va chạm với bản đồ
+        // 3. Tắt Collider
         Collider2D col = GetComponent<Collider2D>();
         if (col != null)
         {
             col.enabled = false;
+        }
+
+        // 4. Hiển thị UI Game Over sau 1.5 giây
+        Invoke(nameof(ShowGameOverUI), 1.5f);
+    }
+
+    private void ShowGameOverUI()
+    {
+        GameOverManager gameOverManager = FindObjectOfType<GameOverManager>();
+        if (gameOverManager != null)
+        {
+            gameOverManager.SetupGameOver();
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ Không tìm thấy GameOverManager trong Scene!");
         }
     }
 
