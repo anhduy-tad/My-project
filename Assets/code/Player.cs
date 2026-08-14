@@ -22,9 +22,9 @@ public class Player : MonoBehaviour
 
     [Header("Audio Settings")]
     public AudioSource audioSource;
-    public AudioClip attackSound; // File âm thanh tiếng chém
-    public AudioClip hurtSound;   // File âm thanh bị trúng đòn (tùy chọn)
-    public AudioClip dieSound;    // File âm thanh khi chết (tùy chọn)
+    public AudioClip attackSound;
+    public AudioClip hurtSound;
+    public AudioClip dieSound;
 
     [Header("Knockback Settings")]
     public float knockbackForce = 5f;
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     public int score = 0;
 
     private Rigidbody2D rb;
-    private Vector2 move;
+    private Vector2 moveInput;
     private Animator anim;
     private SpriteRenderer sr;
 
@@ -45,21 +45,12 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
 
-        // Tự động tìm AudioSource nếu chưa kéo vào Inspector
-        if (audioSource == null)
-        {
-            audioSource = GetComponent<AudioSource>();
-        }
+        if (audioSource == null) audioSource = GetComponent<AudioSource>();
 
-        // Luôn làm tươi lại máu và trạng thái sống khi bắt đầu
         currentHealth = maxHealth;
         isDead = false;
 
-        // Tự động tìm HealthBar nếu chưa kéo vào Inspector
-        if (healthBar == null)
-        {
-            healthBar = FindObjectOfType<HealthBar>();
-        }
+        if (healthBar == null) healthBar = FindObjectOfType<HealthBar>();
 
         if (healthBar != null)
         {
@@ -70,32 +61,33 @@ public class Player : MonoBehaviour
         if (rb != null)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            // Ép collision detection mượt hơn để tránh lọt/kẹt khe
+            rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         }
     }
 
     void Update()
     {
-        // Nếu đã chết -> Dừng mọi input di chuyển và đánh đấm
         if (isDead) return;
 
-        // 1. Nhận input di chuyển
+        // 1. Chỉ lấy Input ở Update
         if (!isKnockedBack)
         {
-            move.x = Input.GetAxisRaw("Horizontal");
-            move.y = Input.GetAxisRaw("Vertical");
-            move = move.normalized;
+            moveInput.x = Input.GetAxisRaw("Horizontal");
+            moveInput.y = Input.GetAxisRaw("Vertical");
+            moveInput = moveInput.normalized;
         }
 
         // 2. Lật Sprite & Xoay AttackPoint
         if (sr != null)
         {
-            if (move.x > 0.01f)
+            if (moveInput.x > 0.01f)
             {
                 sr.flipX = false;
                 if (attackPoint != null)
                     attackPoint.localPosition = new Vector3(Mathf.Abs(attackPoint.localPosition.x), attackPoint.localPosition.y, 0);
             }
-            else if (move.x < -0.01f)
+            else if (moveInput.x < -0.01f)
             {
                 sr.flipX = true;
                 if (attackPoint != null)
@@ -106,9 +98,9 @@ public class Player : MonoBehaviour
         // 3. Cập nhật Animator
         if (anim != null)
         {
-            anim.SetFloat("Horizontal", move.x);
-            anim.SetFloat("Vertical", move.y);
-            anim.SetFloat("Speed", move.sqrMagnitude);
+            anim.SetFloat("Horizontal", moveInput.x);
+            anim.SetFloat("Vertical", moveInput.y);
+            anim.SetFloat("Speed", moveInput.sqrMagnitude);
         }
 
         // 4. Đánh bằng phím J
@@ -124,16 +116,16 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Khi chết -> Ép vận tốc về 0 để dừng ngay lập tức
         if (isDead)
         {
             if (rb != null) rb.velocity = Vector2.zero;
             return;
         }
 
+        // Di chuyển bằng Rigidbody2D trong FixedUpdate tránh bị trễ nhịp làm kẹt
         if (!isKnockedBack && rb != null)
         {
-            rb.velocity = move * moveSpeed;
+            rb.velocity = moveInput * moveSpeed;
         }
     }
 
@@ -141,33 +133,22 @@ public class Player : MonoBehaviour
     {
         if (anim != null) anim.SetTrigger("Attack");
 
-        // PHÁT TIẾNG CHÉM
         if (audioSource != null && attackSound != null)
         {
             audioSource.PlayOneShot(attackSound);
         }
 
-        if (attackPoint == null)
-        {
-            Debug.LogWarning("⚠️ Chưa kéo AttackPoint vào Player Inspector!");
-            return;
-        }
+        if (attackPoint == null) return;
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies)
         {
             Enemy enemyScript = enemy.GetComponent<Enemy>();
-            if (enemyScript != null)
-            {
-                enemyScript.TakeDamage(attackDamage);
-            }
+            if (enemyScript != null) enemyScript.TakeDamage(attackDamage);
 
             Boss2D boss = enemy.GetComponent<Boss2D>();
-            if (boss != null)
-            {
-                boss.TakeDamage(attackDamage);
-            }
+            if (boss != null) boss.TakeDamage(attackDamage);
         }
     }
 
@@ -183,11 +164,12 @@ public class Player : MonoBehaviour
         currentHealth -= damageAmount;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
 
-        Debug.Log($"💥 Player bị dính đòn! Máu còn lại: {currentHealth}/{maxHealth}");
+        if (healthBar != null) healthBar.SetHealth(currentHealth);
 
-        if (healthBar != null)
+        if (sr != null)
         {
-            healthBar.SetHealth(currentHealth);
+            sr.color = Color.red;
+            Invoke(nameof(ResetColor), 0.15f);
         }
 
         if (currentHealth <= 0f)
@@ -198,18 +180,21 @@ public class Player : MonoBehaviour
         {
             if (anim != null) anim.SetTrigger("Hurt");
 
-            // Phát âm thanh khi dính đòn
-            if (audioSource != null && hurtSound != null)
-            {
-                audioSource.PlayOneShot(hurtSound);
-            }
+            if (audioSource != null && hurtSound != null) audioSource.PlayOneShot(hurtSound);
 
             if (rb != null && attackerPosition != Vector2.zero)
             {
                 Vector2 knockbackDirection = ((Vector2)transform.position - attackerPosition).normalized;
+                // Stop mọi Coroutine knockback cũ trước khi gọi cái mới để tránh kẹt vĩnh viễn
+                StopCoroutine(nameof(ApplyKnockback));
                 StartCoroutine(ApplyKnockback(knockbackDirection));
             }
         }
+    }
+
+    private void ResetColor()
+    {
+        if (sr != null) sr.color = Color.white;
     }
 
     private IEnumerator ApplyKnockback(Vector2 direction)
@@ -219,110 +204,52 @@ public class Player : MonoBehaviour
 
         yield return new WaitForSeconds(knockbackDuration);
 
-        if (!isDead)
+        // Đảm bảo mở lại trạng thái di chuyển cho Player
+        isKnockedBack = false;
+        if (!isDead && rb != null)
         {
             rb.velocity = Vector2.zero;
         }
-        isKnockedBack = false;
     }
 
-    // ==========================================
-    // XỬ LÝ KHI PLAYER CHẾT & HIỂN THỊ GAME OVER
-    // ==========================================
     private void Die()
     {
         if (isDead) return;
 
         isDead = true;
-        Debug.Log("☠️ Player đã chết!");
+        if (audioSource != null && dieSound != null) audioSource.PlayOneShot(dieSound);
 
-        // Phát âm thanh khi chết
-        if (audioSource != null && dieSound != null)
-        {
-            audioSource.PlayOneShot(dieSound);
-        }
-
-        // 1. Dừng chuyển động vật lý
         if (rb != null)
         {
             rb.velocity = Vector2.zero;
             rb.isKinematic = true;
         }
 
-        // 2. Chạy Animation Die
-        if (anim != null)
-        {
-            anim.SetTrigger("Die");
-        }
+        if (anim != null) anim.SetTrigger("Die");
 
-        // 3. Tắt Collider
         Collider2D col = GetComponent<Collider2D>();
-        if (col != null)
-        {
-            col.enabled = false;
-        }
+        if (col != null) col.enabled = false;
 
-        // 4. Hiển thị UI Game Over sau 1.5 giây
         Invoke(nameof(ShowGameOverUI), 1.5f);
     }
 
     private void ShowGameOverUI()
     {
         GameOverManager gameOverManager = FindObjectOfType<GameOverManager>();
-        if (gameOverManager != null)
-        {
-            gameOverManager.SetupGameOver();
-        }
-        else
-        {
-            Debug.LogWarning("⚠️ Không tìm thấy GameOverManager trong Scene!");
-        }
+        if (gameOverManager != null) gameOverManager.SetupGameOver();
     }
 
     public void Heal(float healAmount)
     {
         if (isDead) return;
-
-        currentHealth += healAmount;
-        currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
-
-        if (healthBar != null)
-        {
-            healthBar.SetHealth(currentHealth);
-        }
+        currentHealth = Mathf.Clamp(currentHealth + healAmount, 0f, maxHealth);
+        if (healthBar != null) healthBar.SetHealth(currentHealth);
     }
 
     public void AddScore(int amount)
     {
         if (isDead) return;
-
         score += amount;
-        if (ScoreManager.instance != null)
-        {
-            ScoreManager.instance.AddScore(amount);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (isDead) return;
-
-        Item item = collision.GetComponent<Item>();
-        if (item != null)
-        {
-            item.Collect(this);
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (isDead) return;
-
-        Item item = collision.gameObject.GetComponent<Item>();
-        if (item != null)
-        {
-            item.Collect(this);
-        }
     }
 
     private void OnDrawGizmosSelected()

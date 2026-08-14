@@ -201,4 +201,4 @@ MonoBehaviour:
   attackRange: 0.5
   attackRate: 1
   attackDamage: 10
-  scoreReward: 2
+  scoreReward: 0

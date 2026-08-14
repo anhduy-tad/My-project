@@ -6,10 +6,10 @@ public class HealthBar : MonoBehaviour
 {
     [Header("--- UI COMPONENTS ---")]
     public Slider slider;
-    public Image fillImage; 
+    public Image fillImage;
     [Header("--- CÀI ĐẶT MÀU SẮC (TÙY CHỌN) ---")]
     public bool useGradientColor = true;
-    public Gradient healthGradient; 
+    public Gradient healthGradient;
 
     [Header("--- HIỆU ỨNG TỤT MÁU MƯỢT ---")]
     public bool isSmooth = true;
@@ -17,7 +17,7 @@ public class HealthBar : MonoBehaviour
 
     private float targetHealth;
 
-   
+
     public void SetMaxHealth(float maxHealth)
     {
         slider.maxValue = maxHealth;

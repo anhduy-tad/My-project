@@ -17,12 +17,16 @@ public class Enemy : MonoBehaviour
     public float attackDamage = 10f;
     private float nextAttackTime = 0f;
 
-    [Header("Phần thưởng")]
+    [Header("Phần thưởng & Vật phẩm rơi")]
     public int scoreReward = 2;
+    public GameObject healItemPrefab; // Kéo Prefab bình máu vào đây
+    [Range(0f, 1f)] public float dropChance = 0.5f; // Tỉ lệ rớt item (0.5 = 50%)
 
     private Vector3 originalScale;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
+    private Animator anim;
+    private bool isDead = false;
 
     void Start()
     {
@@ -31,6 +35,7 @@ public class Enemy : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
 
         // Cấu hình Rigidbody2D tự động để tránh bị kẹt vật lý
         if (rb != null)
@@ -48,10 +53,14 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        // Nếu quái đã chết -> Dừng toàn bộ logic
+        if (isDead) return;
+
         // 1. Nếu chưa có Player -> Tự động tìm lại
         if (player == null)
         {
             FindPlayer();
+            if (anim != null) anim.SetBool("IsRunning", false);
             return;
         }
 
@@ -64,15 +73,22 @@ public class Enemy : MonoBehaviour
         if (distanceToPlayer <= detectRange && distanceToPlayer > attackRange)
         {
             MoveTowardsPlayer();
+            if (anim != null) anim.SetBool("IsRunning", true);
         }
         // 3. Vào tới tầm đánh -> Đứng lại tấn công
         else if (distanceToPlayer <= attackRange)
         {
+            if (anim != null) anim.SetBool("IsRunning", false);
+
             if (Time.time >= nextAttackTime)
             {
                 AttackPlayer();
                 nextAttackTime = Time.time + attackRate;
             }
+        }
+        else
+        {
+            if (anim != null) anim.SetBool("IsRunning", false);
         }
     }
 
@@ -108,20 +124,29 @@ public class Enemy : MonoBehaviour
 
     void AttackPlayer()
     {
+        // Chạy Animation Attack
+        if (anim != null) anim.SetTrigger("Attack");
+
         Player playerScript = player.GetComponent<Player>();
         if (playerScript != null)
         {
-            playerScript.TakeDamage(attackDamage, transform.position);
+            // Không truyền vị trí -> Player không bị đẩy lùi
+            playerScript.TakeDamage(attackDamage);
         }
     }
 
     // ==========================================
-    // NẬN DAMAGE TỪ PLAYER
+    // NHẬN DAMAGE TỪ PLAYER
     // ==========================================
     public void TakeDamage(float damageAmount)
     {
+        if (isDead) return;
+
         currentHealth -= damageAmount;
         Debug.Log($"⚔️ [{gameObject.name}] Nhận {damageAmount} sát thương! Máu còn lại: {currentHealth}/{maxHealth}");
+
+        // Chạy Animation Hurt
+        if (anim != null) anim.SetTrigger("Hurt");
 
         // Hiệu ứng chớp đỏ nhẹ khi bị đánh
         if (sr != null)
@@ -141,16 +166,37 @@ public class Enemy : MonoBehaviour
         if (sr != null) sr.color = Color.white;
     }
 
+    // ==========================================
+    // XỬ LÝ CHẾT & RỚT ITEM
+    // ==========================================
     void Die()
     {
+        if (isDead) return;
+        isDead = true;
+
         Debug.Log($"☠️ [{gameObject.name}] Đã bị tiêu diệt!");
 
+        // 1. Chạy Animation Die
+        if (anim != null) anim.SetTrigger("Die");
+
+        // 2. Tắt Collider để Player không bị vướng
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null) col.enabled = false;
+
+        // 3. Cộng điểm
         if (ScoreManager.instance != null)
         {
             ScoreManager.instance.AddScore(scoreReward);
         }
 
-        Destroy(gameObject);
+        // 4. Rớt Item hồi máu theo tỷ lệ
+        if (healItemPrefab != null && Random.value <= dropChance)
+        {
+            Instantiate(healItemPrefab, transform.position, Quaternion.identity);
+        }
+
+        // 5. Hủy GameObject sau 0.8s để chạy hết Animation Die
+        Destroy(gameObject, 0.8f);
     }
 
     private void OnDrawGizmosSelected()
