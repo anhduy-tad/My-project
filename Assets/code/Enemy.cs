@@ -1,200 +1,165 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("Movement Settings")]
-    public float moveSpeed = 3.5f;
-    public float detectionRange = 15f;
-
-    [Header("Health & Combat Settings")]
-    public float maxHealth = 50f;
+    [Header("Máu Quái")]
+    public float maxHealth = 100f;
     public float currentHealth;
-    public float damage = 10f;             // Sát thương gây ra cho Player
-    public float attackCooldown = 1f;      // Thời gian giãn cách giữa mỗi lần gây sát thương
-    private float lastAttackTime;
-    private bool isDead = false;
 
-    [Header("Enemy Knockback Settings")]
-    public float knockbackForce = 4f;       // Lực nẩy lùi khi Enemy bị Player chém
-    public float knockbackDuration = 0.15f; // Thời gian khựng lại
-    private bool isKnockedBack = false;
+    [Header("Mục tiêu & Tốc độ")]
+    public Transform player;          // Để trống (None), Code sẽ tự tìm!
+    public float moveSpeed = 3.5f;
 
-    [Header("Target & References")]
-    [Tooltip("Kéo đối tượng muốn đuổi theo vào đây (Nếu để trống, sẽ tự tìm object có Tag là 'Player')")]
-    public Transform target;
+    [Header("Tấn công & Phạm vi")]
+    public float detectRange = 8f;
+    public float attackRange = 1.2f;
+    public float attackRate = 1.0f;
+    public float attackDamage = 10f;
+    private float nextAttackTime = 0f;
 
+    [Header("Phần thưởng")]
+    public int scoreReward = 2;
+
+    private Vector3 originalScale;
     private Rigidbody2D rb;
-    private Animator anim;
     private SpriteRenderer sr;
-    private Vector2 moveDirection;
 
     void Start()
     {
+        currentHealth = maxHealth;
+        originalScale = transform.localScale;
+
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
 
-        currentHealth = maxHealth;
-
+        // Cấu hình Rigidbody2D tự động để tránh bị kẹt vật lý
         if (rb != null)
         {
+            rb.bodyType = RigidbodyType2D.Kinematic; // Dùng Kinematic để di chuyển mượt
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
-        // Tự tìm Player bằng Tag nếu ô target đang để trống (None)
-        if (target == null)
-        {
-            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-            if (playerObj != null)
-            {
-                target = playerObj.transform;
-                Debug.Log("🟢 Đã tìm thấy Target (Player) thành công!");
-            }
-            else
-            {
-                Debug.LogError("🔴 KHÔNG tìm thấy Target! Hãy kéo Target vào Inspector hoặc gắn Tag 'Player' cho Player.");
-            }
-        }
+        // Đảm bảo Z = 0
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
+
+        // Tự động tìm Player
+        FindPlayer();
     }
 
     void Update()
     {
-        if (isDead || target == null) return;
-
-        // Tính hướng di chuyển nếu không trong trạng thái bị đẩy lùi
-        if (!isKnockedBack)
+        // 1. Nếu chưa có Player -> Tự động tìm lại
+        if (player == null)
         {
-            float distanceToTarget = Vector2.Distance(transform.position, target.position);
-
-            if (distanceToTarget <= detectionRange)
-            {
-                moveDirection = (target.position - transform.position).normalized;
-            }
-            else
-            {
-                moveDirection = Vector2.zero;
-            }
-        }
-
-        // Lật sprite theo hướng di chuyển
-        if (sr != null && Mathf.Abs(moveDirection.x) > 0.01f)
-        {
-            sr.flipX = moveDirection.x < 0;
-        }
-
-        // Cập nhật Animator
-        if (anim != null)
-        {
-            anim.SetFloat("Horizontal", moveDirection.x);
-            anim.SetFloat("Vertical", moveDirection.y);
-            anim.SetFloat("Speed", moveDirection.sqrMagnitude);
-        }
-    }
-
-    void FixedUpdate()
-    {
-        if (isDead)
-        {
-            rb.velocity = Vector2.zero;
+            FindPlayer();
             return;
         }
 
-        if (rb == null)
+        // Tính khoảng cách 2D tới Player
+        Vector2 enemyPos = transform.position;
+        Vector2 playerPos = player.position;
+        float distanceToPlayer = Vector2.Distance(enemyPos, playerPos);
+
+        // 2. Nếu Player nằm trong tầm phát hiện và chưa vào tầm đánh -> Đuổi theo
+        if (distanceToPlayer <= detectRange && distanceToPlayer > attackRange)
         {
-            Debug.LogError("🔴 Enemy chưa có Rigidbody2D! Hãy thêm Rigidbody2D vào Enemy.");
-            return;
+            MoveTowardsPlayer();
         }
-
-        // Đẩy vật lý di chuyển (chỉ di chuyển khi không bị khựng)
-        if (!isKnockedBack)
+        // 3. Vào tới tầm đánh -> Đứng lại tấn công
+        else if (distanceToPlayer <= attackRange)
         {
-            rb.MovePosition(rb.position + moveDirection * moveSpeed * Time.fixedDeltaTime);
-        }
-    }
-
-    // ==========================================
-    // CHẠM VÀO PLAYER -> TRỪ MÁU PLAYER
-    // ==========================================
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (isDead) return;
-
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            if (Time.time >= lastAttackTime + attackCooldown)
+            if (Time.time >= nextAttackTime)
             {
-                Player player = collision.gameObject.GetComponent<Player>();
-                if (player != null)
-                {
-                    // Truyền vị trí Enemy sang để Player bị bật lùi
-                    player.TakeDamage(damage, transform.position);
-                    lastAttackTime = Time.time;
-                }
+                AttackPlayer();
+                nextAttackTime = Time.time + attackRate;
             }
         }
     }
 
+    void FindPlayer()
+    {
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
+        {
+            player = playerObj.transform;
+        }
+    }
+
+    void MoveTowardsPlayer()
+    {
+        // Di chuyển vị trí bằng Vector2.MoveTowards
+        Vector3 targetPosition = new Vector3(player.position.x, player.position.y, transform.position.z);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+
+        // Lật mặt Sprite theo hướng Player
+        float absX = Mathf.Abs(originalScale.x);
+        float absY = Mathf.Abs(originalScale.y);
+        float absZ = Mathf.Abs(originalScale.z);
+
+        if (player.position.x < transform.position.x)
+        {
+            transform.localScale = new Vector3(-absX, absY, absZ);
+        }
+        else if (player.position.x > transform.position.x)
+        {
+            transform.localScale = new Vector3(absX, absY, absZ);
+        }
+    }
+
+    void AttackPlayer()
+    {
+        Player playerScript = player.GetComponent<Player>();
+        if (playerScript != null)
+        {
+            playerScript.TakeDamage(attackDamage, transform.position);
+        }
+    }
+
     // ==========================================
-    // MÁU & SÁT THƯƠNG CỦA ENEMY
+    // NẬN DAMAGE TỪ PLAYER
     // ==========================================
     public void TakeDamage(float damageAmount)
     {
-        if (isDead) return;
-
         currentHealth -= damageAmount;
-        Debug.Log($"Enemy bị chém! Máu còn lại: {currentHealth}/{maxHealth}");
+        Debug.Log($"⚔️ [{gameObject.name}] Nhận {damageAmount} sát thương! Máu còn lại: {currentHealth}/{maxHealth}");
 
-        if (anim != null)
+        // Hiệu ứng chớp đỏ nhẹ khi bị đánh
+        if (sr != null)
         {
-            anim.SetTrigger("Hurt");
+            Invoke(nameof(ResetColor), 0.15f);
+            sr.color = Color.red;
         }
 
-        // Tạo hiệu ứng bị đẩy lùi nhẹ khi trúng đòn
-        if (target != null)
-        {
-            Vector2 knockbackDir = ((Vector2)transform.position - (Vector2)target.position).normalized;
-            StartCoroutine(ApplyKnockback(knockbackDir));
-        }
-
-        if (currentHealth <= 0f)
+        if (currentHealth <= 0)
         {
             Die();
         }
     }
 
-    private IEnumerator ApplyKnockback(Vector2 direction)
+    void ResetColor()
     {
-        isKnockedBack = true;
-        rb.velocity = direction * knockbackForce;
-
-        yield return new WaitForSeconds(knockbackDuration);
-
-        rb.velocity = Vector2.zero;
-        isKnockedBack = false;
+        if (sr != null) sr.color = Color.white;
     }
 
-    private void Die()
+    void Die()
     {
-        isDead = true;
-        Debug.Log("Enemy đã bị tiêu diệt!");
+        Debug.Log($"☠️ [{gameObject.name}] Đã bị tiêu diệt!");
 
-        if (anim != null)
+        if (ScoreManager.instance != null)
         {
-            anim.SetTrigger("Die");
+            ScoreManager.instance.AddScore(scoreReward);
         }
 
-        // Tắt va chạm và dừng di chuyển
-        Collider2D col = GetComponent<Collider2D>();
-        if (col != null) col.enabled = false;
-
-        // Xóa Enemy khỏi Scene sau 1.5 giây
-        Destroy(gameObject, 1.5f);
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmosSelected()
     {
+        // Vẽ vòng tròn tầm phát hiện (Vàng) và tầm đánh (Đỏ) trong Scene
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
+        Gizmos.DrawWireSphere(transform.position, detectRange);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  maxHealth: 100
+  maxHealth: 1000
   currentHealth: 0
   isDead: 0
   healthBar: {fileID: 0}
@@ -325,6 +325,7 @@ MonoBehaviour:
   attackRate: 2
   knockbackForce: 5
   knockbackDuration: 0.2
+  score: 0
 --- !u!95 &349537903
 Animator:
   serializedVersion: 5
@@ -403,7 +404,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -5475,9 +5476,9 @@ GameObject:
   - component: {fileID: 1117614515}
   - component: {fileID: 1117614514}
   - component: {fileID: 1117614513}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: demon_walk_1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5520,8 +5521,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -377325753
-  m_SortingLayer: 4
+  m_SortingLayerID: 544382371
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 04e7de2b0c4ebaf46b70bff8daff48c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5543,10 +5544,11 @@ Transform:
   m_GameObject: {fileID: 1117614509}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34.48, y: 5.12, z: 0}
+  m_LocalPosition: {x: 31.25, y: 6.33, z: 0}
   m_LocalScale: {x: 1, y: 1.19, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1882826734}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1117614512
@@ -5585,19 +5587,19 @@ MonoBehaviour:
   maxHealth: 1000
   currentHealth: 0
   moveSpeed: 3.5
-  isPhaseTwo: 0
+  isPhaseTwo: 1
   detectRange: 10
   attackRange: 1.8
   attackCooldown: 2
-  attackPoint: {fileID: 0}
+  attackPoint: {fileID: 1882826734}
   attackRadius: 1.2
   damagePhaseOne: 20
   damagePhaseTwo: 35
   telegraphTime: 0.5
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
-  player: {fileID: 0}
+    m_Bits: 512
+  playar: {fileID: 349537901}
 --- !u!61 &1117614514
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5627,7 +5629,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.038322598, y: -0.40256098}
@@ -5651,7 +5653,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1117614509}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -16919,6 +16921,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab89918d9c2f2564ba9e7e2c6102af02, type: 3}
+--- !u!1 &1882826733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1882826734}
+  m_Layer: 8
+  m_Name: Attackpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1882826734
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882826733}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1117614511}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2084726606
 GameObject:
   m_ObjectHideFlags: 0
@@ -17106,7 +17139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4981733277367375775, guid: ab89918d9c2f2564ba9e7e2c6102af02, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.96
+      value: -6.24
       objectReference: {fileID: 0}
     - target: {fileID: 4981733277367375775, guid: ab89918d9c2f2564ba9e7e2c6102af02, type: 3}
       propertyPath: m_LocalPosition.y
@@ -17143,6 +17176,10 @@ PrefabInstance:
     - target: {fileID: 4981733277367375775, guid: ab89918d9c2f2564ba9e7e2c6102af02, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450498550111041004, guid: ab89918d9c2f2564ba9e7e2c6102af02, type: 3}
+      propertyPath: m_BodyType
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

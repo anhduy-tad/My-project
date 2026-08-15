@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e5dd59f43be05de4284c6c4cb4fc8e09
+guid: 88a37cf214bf62a47b7928712e66f1bb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemies-skeleton1_idle_0
+      name: BlueCoin Sheet_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 3
-        width: 15
-        height: 15
+        x: 3
+        y: 17
+        width: 10
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb636edf3cdc1ce45b2f775b064636b6
-      internalID: -1374449887
+      spriteID: 4a891a5aa4b2eaa489f146a5db69b8b0
+      internalID: 1780748347
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies-skeleton1_idle_1
+      name: BlueCoin Sheet_1
       rect:
         serializedVersion: 2
-        x: 39
-        y: 3
-        width: 15
-        height: 15
+        x: 20
+        y: 17
+        width: 8
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c419d215fc18a04b982000d1690b6f2
-      internalID: 1845603730
+      spriteID: 4f8f3ce33cf6e0f40aed901b4121ee0f
+      internalID: -1618846709
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies-skeleton1_idle_2
+      name: BlueCoin Sheet_2
       rect:
         serializedVersion: 2
-        x: 71
-        y: 3
-        width: 15
-        height: 16
+        x: 34
+        y: 4
+        width: 12
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fbbf2d89e8ca8e4b89b251fae944a24
-      internalID: 2126800803
+      spriteID: de43df8be50eeb14d924a4d3f09f1ce7
+      internalID: -777170319
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies-skeleton1_idle_3
+      name: BlueCoin Sheet_3
       rect:
         serializedVersion: 2
-        x: 103
+        x: 50
         y: 3
-        width: 15
-        height: 16
+        width: 13
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bb5c95589d7a8140bdb39a008acb652
-      internalID: 413742640
+      spriteID: 32b19e7f3f2ac4f4db196923517e4925
+      internalID: 184591184
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies-skeleton1_idle_4
+      name: BlueCoin Sheet_4
       rect:
         serializedVersion: 2
-        x: 135
-        y: 3
-        width: 15
-        height: 15
+        x: 67
+        y: 12
+        width: 7
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db8981c6e4e74e34e8fb25ab7de26551
-      internalID: -1471362954
+      spriteID: 7e2423133dc22ef48bfddd7945b879aa
+      internalID: -1372278044
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies-skeleton1_idle_5
+      name: BlueCoin Sheet_5
       rect:
         serializedVersion: 2
-        x: 167
-        y: 3
-        width: 15
-        height: 15
+        x: 76
+        y: 4
+        width: 18
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,8 +216,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51a1b8f0d64cd174d848d7e0406b5dfd
-      internalID: 1928729289
+      spriteID: d5c1269dd546a20478272dd00decd4a8
+      internalID: -1094656473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueCoin Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 17
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ec74917d182ce341bc8f7e5a72d5d08
+      internalID: -985457821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueCoin Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 17
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04d85c5d0b567f44ebc102f1dbe35c4d
+      internalID: -1398893685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueCoin Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 1
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d175d52e0324fb41a0c238d96b66200
+      internalID: 1639201599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueCoin Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 6
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62c890ca54d54a042bca0bc5454b5279
+      internalID: 1948885805
       vertices: []
       indices: 
       edges: []
@@ -233,12 +317,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      enemies-skeleton1_idle_0: -1374449887
-      enemies-skeleton1_idle_1: 1845603730
-      enemies-skeleton1_idle_2: 2126800803
-      enemies-skeleton1_idle_3: 413742640
-      enemies-skeleton1_idle_4: -1471362954
-      enemies-skeleton1_idle_5: 1928729289
+      BlueCoin Sheet_0: 1780748347
+      BlueCoin Sheet_1: -1618846709
+      BlueCoin Sheet_2: -777170319
+      BlueCoin Sheet_3: 184591184
+      BlueCoin Sheet_4: -1372278044
+      BlueCoin Sheet_5: -1094656473
+      BlueCoin Sheet_6: -985457821
+      BlueCoin Sheet_7: -1398893685
+      BlueCoin Sheet_8: 1639201599
+      BlueCoin Sheet_9: 1948885805
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

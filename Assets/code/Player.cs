@@ -10,20 +10,23 @@ public class Player : MonoBehaviour
     public float maxHealth = 100f;
     public float currentHealth;
     public bool isDead = false;
-    public HealthBar healthBar; // <--- ĐÃ THÊM: Kéo GameObject Thanh Máu vào đây
+    public HealthBar healthBar;
 
     [Header("Combat Settings")]
-    public Transform attackPoint;      // Điểm xuất phát của đòn đánh (kéo 1 GameObject con vào)
-    public float attackRange = 0.5f;   // Bán kính vùng chém
-    public LayerMask enemyLayers;      // Chọn Layer chứa Quái và Boss
-    public float attackDamage = 20f;   // Sát thương Player gây ra
-    public float attackRate = 2f;      // Số lần chém tối đa trong 1 giây
+    public Transform attackPoint;
+    public float attackRange = 0.8f;
+    public LayerMask enemyLayers;
+    public float attackDamage = 20f;
+    public float attackRate = 2f;
     private float nextAttackTime = 0f;
 
     [Header("Knockback Settings")]
-    public float knockbackForce = 5f;   // Lực đẩy lùi khi bị Enemy đánh
-    public float knockbackDuration = 0.2f; // Thời gian bị khựng do đẩy lùi
+    public float knockbackForce = 5f;
+    public float knockbackDuration = 0.2f;
     private bool isKnockedBack = false;
+
+    [Header("Score Settings")]
+    public int score = 0;
 
     private Rigidbody2D rb;
     private Vector2 move;
@@ -38,7 +41,6 @@ public class Player : MonoBehaviour
 
         currentHealth = maxHealth;
 
-        // <--- ĐÃ THÊM: Cài đặt máu tối đa lên UI khi vào Game
         if (healthBar != null)
         {
             healthBar.SetMaxHealth(maxHealth);
@@ -52,9 +54,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        // Nếu đã chết -> Dừng mọi input di chuyển và đánh đấm
         if (isDead) return;
 
-        // 1. Nhận input di chuyển (chỉ nhận khi không bị Knockback)
+        // 1. Nhận input di chuyển
         if (!isKnockedBack)
         {
             move.x = Input.GetAxisRaw("Horizontal");
@@ -62,7 +65,7 @@ public class Player : MonoBehaviour
             move = move.normalized;
         }
 
-        // 2. Lật Sprite trái / phải & xoay điểm AttackPoint theo hướng nhìn
+        // 2. Lật Sprite & Xoay AttackPoint
         if (sr != null)
         {
             if (move.x > 0.01f)
@@ -87,7 +90,7 @@ public class Player : MonoBehaviour
             anim.SetFloat("Speed", move.sqrMagnitude);
         }
 
-        // 4. Xử lý Đánh bằng phím J (Đưa ra ngoài độc lập với Animator)
+        // 4. Đánh bằng phím J
         if (Time.time >= nextAttackTime)
         {
             if (Input.GetKeyDown(KeyCode.J))
@@ -100,25 +103,21 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Khi chết -> Ép vận tốc về 0 để dừng ngay lập tức
         if (isDead)
         {
-            rb.velocity = Vector2.zero;
+            if (rb != null) rb.velocity = Vector2.zero;
             return;
         }
 
-        // Không ghi đè velocity nếu đang trong thời gian bị bật lùi (Knockback)
-        if (!isKnockedBack)
+        if (!isKnockedBack && rb != null)
         {
             rb.velocity = move * moveSpeed;
         }
     }
 
-    // ==========================================
-    // CƠ CHẾ TẤN CÔNG (CHÉM ENEMY & BOSS)
-    // ==========================================
     void Attack()
     {
-        // Trigger animation nếu có
         if (anim != null) anim.SetTrigger("Attack");
 
         if (attackPoint == null)
@@ -127,33 +126,27 @@ public class Player : MonoBehaviour
             return;
         }
 
-        // Quét tất cả Enemy/Boss trong vùng chém
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-        // Gây sát thương cho từng kẻ địch trúng đòn
         foreach (Collider2D enemy in hitEnemies)
         {
-            // 1. Kiểm tra nếu là Boss
+            // 1. Kiểm tra và gây sát thương cho Quái thường
+            EnemyAI enemyScript = enemy.GetComponent<EnemyAI>();
+            if (enemyScript != null)
+            {
+                enemyScript.TakeDamage(attackDamage);
+            }
+
+            // 2. Kiểm tra và gây sát thương cho Boss
             Boss2D boss = enemy.GetComponent<Boss2D>();
             if (boss != null)
             {
                 boss.TakeDamage(attackDamage);
                 Debug.Log($"⚔️ Player đã chém trúng BOSS {enemy.name}!");
             }
-
-            // 2. Kiểm tra nếu là Quái thường
-            EnemyAI enemyScript = enemy.GetComponent<EnemyAI>();
-            if (enemyScript != null)
-            {
-                enemyScript.TakeDamage(attackDamage);
-                Debug.Log($"⚔️ Player đã chém trúng Quái {enemy.name}!");
-            }
         }
     }
 
-    // ==========================================
-    // CƠ CHẾ NHẬN SÁT THƯƠNG & BỊ ĐẨY LÙI
-    // ==========================================
     public void TakeDamage(float damageAmount, Vector2 attackerPosition)
     {
         if (isDead) return;
@@ -161,26 +154,25 @@ public class Player : MonoBehaviour
         currentHealth -= damageAmount;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
 
-        // <--- ĐÃ THÊM: Cập nhật máu rút trên UI
         if (healthBar != null)
         {
             healthBar.SetHealth(currentHealth);
         }
 
-        Debug.Log($"💥 Player bị đánh! Mất {damageAmount} máu. Máu còn lại: {currentHealth}/{maxHealth}");
-
-        if (anim != null) anim.SetTrigger("Hurt");
-
-        // Xử lý bật lùi (Knockback) ra xa khỏi Enemy
-        if (rb != null)
-        {
-            Vector2 knockbackDirection = ((Vector2)transform.position - attackerPosition).normalized;
-            StartCoroutine(ApplyKnockback(knockbackDirection));
-        }
-
+        // Kiểm tra máu nếu hết thì Die, ngược lại thì chạy anim Hurt
         if (currentHealth <= 0f)
         {
             Die();
+        }
+        else
+        {
+            if (anim != null) anim.SetTrigger("Hurt");
+
+            if (rb != null && attackerPosition != Vector2.zero)
+            {
+                Vector2 knockbackDirection = ((Vector2)transform.position - attackerPosition).normalized;
+                StartCoroutine(ApplyKnockback(knockbackDirection));
+            }
         }
     }
 
@@ -191,13 +183,44 @@ public class Player : MonoBehaviour
 
         yield return new WaitForSeconds(knockbackDuration);
 
-        rb.velocity = Vector2.zero;
+        if (!isDead)
+        {
+            rb.velocity = Vector2.zero;
+        }
         isKnockedBack = false;
     }
 
     // ==========================================
-    // CƠ CHẾ HỒI MÁU
+    // XỬ LÝ KHI PLAYER CHẾT (DIE ANIMATION)
     // ==========================================
+    private void Die()
+    {
+        if (isDead) return; // Tránh gọi Die trùng lặp nhiều lần
+
+        isDead = true;
+        Debug.Log("☠️ Player đã chết!");
+
+        // 1. Dừng chuyển động vật lý
+        if (rb != null)
+        {
+            rb.velocity = Vector2.zero;
+            rb.isKinematic = true; // Chuyển sang Kinematic để quái/vật phẩm không xô đẩy xác Player
+        }
+
+        // 2. Kích hoạt Trigger "Die" trong Animator
+        if (anim != null)
+        {
+            anim.SetTrigger("Die");
+        }
+
+        // 3. Tắt Collider để quái không đánh tiếp và không va chạm với bản đồ
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null)
+        {
+            col.enabled = false;
+        }
+    }
+
     public void Heal(float healAmount)
     {
         if (isDead) return;
@@ -205,25 +228,45 @@ public class Player : MonoBehaviour
         currentHealth += healAmount;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
 
-        // <--- ĐÃ THÊM: Cập nhật máu tăng trên UI
         if (healthBar != null)
         {
             healthBar.SetHealth(currentHealth);
         }
     }
 
-    private void Die()
+    public void AddScore(int amount)
     {
-        isDead = true;
-        Debug.Log("☠️ Player đã chết!");
+        if (isDead) return;
 
-        if (anim != null) anim.SetTrigger("Die");
-
-        Collider2D col = GetComponent<Collider2D>();
-        if (col != null) col.enabled = false;
+        score += amount;
+        if (ScoreManager.instance != null)
+        {
+            ScoreManager.instance.AddScore(amount);
+        }
     }
 
-    // Vẽ vùng chém trong cửa sổ Scene để dễ căn chỉnh
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (isDead) return;
+
+        Item item = collision.GetComponent<Item>();
+        if (item != null)
+        {
+            item.Collect(this);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (isDead) return;
+
+        Item item = collision.gameObject.GetComponent<Item>();
+        if (item != null)
+        {
+            item.Collect(this);
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
         if (attackPoint == null) return;
