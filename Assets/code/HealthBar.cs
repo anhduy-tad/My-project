@@ -6,6 +6,7 @@ public class HealthBar : MonoBehaviour
     [Header("--- UI COMPONENTS ---")]
     public Slider slider;
     public Image fillImage;
+
     [Header("--- CÀI ĐẶT MÀU SẮC (TÙY CHỌN) ---")]
     public bool useGradientColor = true;
     public Gradient healthGradient;
@@ -15,16 +16,6 @@ public class HealthBar : MonoBehaviour
     public float smoothSpeed = 5f;
 
     private float targetHealth;
-
-
-    public void SetMaxHealth(float maxHealth)
-    {
-        // Tự động tìm Slider nếu quên kéo vào Inspector
-        if (slider == null)
-        {
-            slider = GetComponent<Slider>();
-        }
-    }
 
     public void SetMaxHealth(float health)
     {
