@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
     // Hàm này sẽ gắn vào nút "New Game" hoặc "Play"
     public void PlayGame()
     {
-        SceneManager.LoadScene("Map1");
+        SceneManager.LoadScene("Map2");
 
         // Hoặc bạn có thể dùng chỉ số Index của Scene trong Build Settings:
         // SceneManager.LoadScene(1);

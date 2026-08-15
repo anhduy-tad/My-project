@@ -99437,7 +99437,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.55, y: 2.23, z: -10}
+  m_LocalPosition: {x: -6.36, y: 2.27, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -99974,7 +99974,7 @@ Transform:
   m_GameObject: {fileID: 615092001}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.55, y: 2.23, z: 0}
+  m_LocalPosition: {x: -6.36, y: 2.27, z: 0}
   m_LocalScale: {x: 1.7283, y: 1.7283, z: 1.7283}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -100007,7 +100007,7 @@ MonoBehaviour:
   attackRate: 2
   sfxSource: {fileID: 0}
   bgmSource: {fileID: 0}
-  bgmSound: {fileID: 8300000, guid: 955f261135a8d0143ace3dc7bd92b2d2, type: 3}
+  bgmSound: {fileID: 0}
   attackSound: {fileID: 8300000, guid: 4978d3d6eae70a849afff2a179caafb8, type: 3}
   hurtSound: {fileID: 8300000, guid: 54a5c7ff91b1f39419882e468e39d1b6, type: 3}
   dieSound: {fileID: 8300000, guid: 884d92d622a77574cb828dec5da8fd06, type: 3}
@@ -100096,8 +100096,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: 955f261135a8d0143ace3dc7bd92b2d2, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -120353,6 +120353,7 @@ GameObject:
   - component: {fileID: 1082708929}
   - component: {fileID: 1082708933}
   - component: {fileID: 1082708932}
+  - component: {fileID: 1082708934}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -120520,6 +120521,34 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1082708934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082708927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5001a729d8fa1a84381e3638e101e072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1000
+  currentHealth: 0
+  moveSpeed: 3.5
+  isPhaseTwo: 0
+  detectRange: 1.5
+  attackRange: 1.3
+  attackCooldown: 2
+  attackPoint: {fileID: 0}
+  attackRadius: 1.2
+  damagePhaseOne: 20
+  damagePhaseTwo: 35
+  telegraphTime: 0.5
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  player: {fileID: 0}
 --- !u!4 &1090541091 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2659216299515928346, guid: 46b1d0a7913148749be3beb6b72a722e, type: 3}
