@@ -100005,7 +100005,9 @@ MonoBehaviour:
     m_Bits: 256
   attackDamage: 10
   attackRate: 2
-  audioSource: {fileID: 615092008}
+  sfxSource: {fileID: 0}
+  bgmSource: {fileID: 0}
+  bgmSound: {fileID: 8300000, guid: 955f261135a8d0143ace3dc7bd92b2d2, type: 3}
   attackSound: {fileID: 8300000, guid: 4978d3d6eae70a849afff2a179caafb8, type: 3}
   hurtSound: {fileID: 8300000, guid: 54a5c7ff91b1f39419882e468e39d1b6, type: 3}
   dieSound: {fileID: 8300000, guid: 884d92d622a77574cb828dec5da8fd06, type: 3}

@@ -21,7 +21,9 @@ public class Player : MonoBehaviour
     private float nextAttackTime = 0f;
 
     [Header("Audio Settings")]
-    public AudioSource audioSource;
+    public AudioSource sfxSource;      // Đổi tên để phân biệt với SFX
+    public AudioSource bgmSource;      // AudioSource riêng cho Nhạc nền
+    public AudioClip bgmSound;         // File Nhạc nền
     public AudioClip attackSound;
     public AudioClip hurtSound;
     public AudioClip dieSound;
@@ -45,7 +47,15 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
 
-        if (audioSource == null) audioSource = GetComponent<AudioSource>();
+        if (sfxSource == null) sfxSource = GetComponent<AudioSource>();
+
+        // Xử lý phát nhạc nền
+        if (bgmSource != null && bgmSound != null)
+        {
+            bgmSource.clip = bgmSound;
+            bgmSource.loop = true; // Lặp lại liên tục
+            bgmSource.Play();
+        }
 
         currentHealth = maxHealth;
         isDead = false;
@@ -61,7 +71,6 @@ public class Player : MonoBehaviour
         if (rb != null)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            // Ép collision detection mượt hơn để tránh lọt/kẹt khe
             rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         }
     }
@@ -70,7 +79,6 @@ public class Player : MonoBehaviour
     {
         if (isDead) return;
 
-        // 1. Chỉ lấy Input ở Update
         if (!isKnockedBack)
         {
             moveInput.x = Input.GetAxisRaw("Horizontal");
@@ -78,7 +86,6 @@ public class Player : MonoBehaviour
             moveInput = moveInput.normalized;
         }
 
-        // 2. Lật Sprite & Xoay AttackPoint
         if (sr != null)
         {
             if (moveInput.x > 0.01f)
@@ -95,7 +102,6 @@ public class Player : MonoBehaviour
             }
         }
 
-        // 3. Cập nhật Animator
         if (anim != null)
         {
             anim.SetFloat("Horizontal", moveInput.x);
@@ -103,7 +109,6 @@ public class Player : MonoBehaviour
             anim.SetFloat("Speed", moveInput.sqrMagnitude);
         }
 
-        // 4. Đánh bằng phím J
         if (Time.time >= nextAttackTime)
         {
             if (Input.GetKeyDown(KeyCode.J))
@@ -122,7 +127,6 @@ public class Player : MonoBehaviour
             return;
         }
 
-        // Di chuyển bằng Rigidbody2D trong FixedUpdate tránh bị trễ nhịp làm kẹt
         if (!isKnockedBack && rb != null)
         {
             rb.velocity = moveInput * moveSpeed;
@@ -133,9 +137,9 @@ public class Player : MonoBehaviour
     {
         if (anim != null) anim.SetTrigger("Attack");
 
-        if (audioSource != null && attackSound != null)
+        if (sfxSource != null && attackSound != null)
         {
-            audioSource.PlayOneShot(attackSound);
+            sfxSource.PlayOneShot(attackSound);
         }
 
         if (attackPoint == null) return;
@@ -180,12 +184,11 @@ public class Player : MonoBehaviour
         {
             if (anim != null) anim.SetTrigger("Hurt");
 
-            if (audioSource != null && hurtSound != null) audioSource.PlayOneShot(hurtSound);
+            if (sfxSource != null && hurtSound != null) sfxSource.PlayOneShot(hurtSound);
 
             if (rb != null && attackerPosition != Vector2.zero)
             {
                 Vector2 knockbackDirection = ((Vector2)transform.position - attackerPosition).normalized;
-                // Stop mọi Coroutine knockback cũ trước khi gọi cái mới để tránh kẹt vĩnh viễn
                 StopCoroutine(nameof(ApplyKnockback));
                 StartCoroutine(ApplyKnockback(knockbackDirection));
             }
@@ -204,7 +207,6 @@ public class Player : MonoBehaviour
 
         yield return new WaitForSeconds(knockbackDuration);
 
-        // Đảm bảo mở lại trạng thái di chuyển cho Player
         isKnockedBack = false;
         if (!isDead && rb != null)
         {
@@ -217,7 +219,10 @@ public class Player : MonoBehaviour
         if (isDead) return;
 
         isDead = true;
-        if (audioSource != null && dieSound != null) audioSource.PlayOneShot(dieSound);
+        if (sfxSource != null && dieSound != null) sfxSource.PlayOneShot(dieSound);
+
+        // Tùy chọn: Tắt nhạc nền khi Player chết
+        if (bgmSource != null) bgmSource.Stop();
 
         if (rb != null)
         {
