@@ -6,9 +6,8 @@ public class HealthBar : MonoBehaviour
     [Header("--- UI COMPONENTS ---")]
     public Slider slider;
     public Image fillImage;
-
     [Header("--- CÀI ĐẶT MÀU SẮC (TÙY CHỌN) ---")]
-    public bool useGradientColor = false;
+    public bool useGradientColor = true;
     public Gradient healthGradient;
 
     [Header("--- HIỆU ỨNG TỤT MÁU MƯỢT ---")]
@@ -17,7 +16,8 @@ public class HealthBar : MonoBehaviour
 
     private float targetHealth;
 
-    private void Awake()
+
+    public void SetMaxHealth(float maxHealth)
     {
         // Tự động tìm Slider nếu quên kéo vào Inspector
         if (slider == null)

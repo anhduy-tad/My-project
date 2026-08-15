@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6544332807185218021}
   - component: {fileID: 2501530823273973192}
   m_Layer: 0
-  m_Name: New Prefab
+  m_Name: Coins
   m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,6 +102,8 @@ MonoBehaviour:
   itemType: 0
   scoreValue: 2
   healValue: 10
+  collectSound: {fileID: 8300000, guid: 2d1119bcfc37b00479125278b501cc11, type: 3}
+  soundVolume: 0.629
   enableBobbing: 1
   bobbingSpeed: 3
   bobbingAmount: 0.15
