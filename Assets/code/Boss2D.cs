@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public enum BossState { Idle, Chase, Telegraph, Attacking, Cooldown }
-
 public class Boss2D : MonoBehaviour
 {
     [Header("--- THÔNG SỐ BOSS ---")]
@@ -15,8 +13,9 @@ public class Boss2D : MonoBehaviour
     public float detectRange = 10f;
     public float attackRange = 1.8f;
     public float attackCooldown = 2f;
+    private float nextAttackTime = 0f;
 
-    [Header("--- SÁT THƯƠNG & CHÉM ---")]
+    [Header("--- SÁT THƯƠNG & CHẾM ---")]
     public Transform attackPoint;
     public float attackRadius = 1.2f;
     public float damagePhaseOne = 20f;
@@ -25,178 +24,173 @@ public class Boss2D : MonoBehaviour
     public LayerMask playerLayer;
 
     [Header("--- THAM CHIẾU ---")]
-    public Transform player;
+    public Transform playar; // Giữ nguyên tên 'playar' để khớp với Inspector của bạn
 
-    private BossState currentState = BossState.Idle;
-    private float cooldownTimer;
-    private SpriteRenderer spriteRenderer;
-    private Color originalColor;
-    private bool isFlashing = false;
+    private Rigidbody2D rb;
+    private Animator anim;
+    private bool isAttacking = false;
+    private bool isDead = false;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+
+        // 1. Khởi tạo máu ban đầu (tránh lỗi máu = 0 khiến Boss đứng im)
         currentHealth = maxHealth;
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        originalColor = spriteRenderer.color;
 
-        if (player == null && GameObject.FindGameObjectWithTag("Player") != null)
+        // 2. Tự tìm Player bằng Tag nếu chưa gán trong Inspector
+        if (playar == null)
         {
-            player = GameObject.FindGameObjectWithTag("Player").transform;
+            GameObject pObj = GameObject.FindGameObjectWithTag("Player");
+            if (pObj != null) playar = pObj.transform;
         }
-
-        if (attackPoint == null) attackPoint = transform;
     }
 
     void Update()
     {
-        if (player == null) return;
+        if (isDead || playar == null || isAttacking) return;
 
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        float distanceToPlayer = Vector2.Distance(transform.position, playar.position);
 
-        // Chỉ lật mặt khi KHÔNG trong trạng thái đang gồng/chém
-        if (currentState != BossState.Telegraph && currentState != BossState.Attacking)
-        {
-            FlipTowardPlayer();
-        }
-
-        // --- STATE MACHINE ---
-        switch (currentState)
-        {
-            case BossState.Idle:
-                if (distanceToPlayer <= detectRange)
-                {
-                    currentState = BossState.Chase;
-                }
-                break;
-
-            case BossState.Chase:
-                transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
-
-                if (distanceToPlayer <= attackRange)
-                {
-                    StartCoroutine(AttackRoutine());
-                }
-                break;
-
-            case BossState.Cooldown:
-                cooldownTimer -= Time.deltaTime;
-                if (cooldownTimer <= 0)
-                {
-                    currentState = BossState.Chase;
-                }
-                break;
-        }
-    }
-
-    private IEnumerator AttackRoutine()
-    {
-        currentState = BossState.Telegraph;
-
-        // Cảnh báo đòn đánh (Màu vàng)
-        if (!isFlashing) spriteRenderer.color = Color.yellow;
-
-        yield return new WaitForSeconds(telegraphTime);
-
-        // Thực hiện đòn chém
-        currentState = BossState.Attacking;
-        if (!isFlashing) spriteRenderer.color = isPhaseTwo ? Color.red : originalColor;
-
-        PerformMeleeSlash();
-
-        currentState = BossState.Cooldown;
-        cooldownTimer = attackCooldown;
-    }
-
-    private void PerformMeleeSlash()
-    {
-        float damageToDeal = isPhaseTwo ? damagePhaseTwo : damagePhaseOne;
-
-        Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, playerLayer);
-
-        foreach (Collider2D hit in hitPlayers)
-        {
-            if (hit.CompareTag("Player"))
-            {
-                Debug.Log($"Boss chém trúng Player! Gây {damageToDeal} damage.");
-
-                // Mở comment dòng dưới và đổi "Player" thành tên script máu của Player nếu có:
-                // hit.GetComponent<Player>()?.TakeDamage(damageToDeal);
-            }
-        }
-    }
-
-    private void FlipTowardPlayer()
-    {
-        if (player.position.x > transform.position.x)
-            transform.localScale = new Vector3(-1, 1, 1);
-        else if (player.position.x < transform.position.x)
-            transform.localScale = new Vector3(1, 1, 1);
-    }
-
-    // ==========================================
-    // --- HỆ THỐNG NHẬN DAMAGE TỪ PLAYER ---
-    // ==========================================
-    public void TakeDamage(float damage)
-    {
-        currentHealth -= damage;
-        Debug.Log($"Boss mất {damage} HP! Còn lại: {currentHealth}/{maxHealth}");
-
-        // Chớp đỏ báo hiệu dính đòn
-        StartCoroutine(FlashDamageEffect());
-
-        // Kiểm tra Chuyển Phase 2 khi HP <= 50%
+        // Kích hoạt Phase 2 khi máu Boss giảm xuống dưới 50%
         if (currentHealth <= maxHealth * 0.5f && !isPhaseTwo)
         {
-            EnterPhaseTwo();
+            isPhaseTwo = true;
+            moveSpeed *= 1.25f; // Tăng tốc độ chạy ở Phase 2
+            Debug.Log("🔥 BOSS NỔI GIẬN: CHUYỂN SANG PHASE 2!");
         }
 
-        // Kiểm tra Chết
-        if (currentHealth <= 0)
+        // Lật hướng nhìn của Boss theo vị trí Player
+        FlipTowardsPlayer();
+
+        // XL1: Trong tầm đánh -> Tấn công
+        if (distanceToPlayer <= attackRange)
+        {
+            SetMovingAnimation(false);
+
+            if (Time.time >= nextAttackTime)
+            {
+                StartCoroutine(PerformAttack());
+                nextAttackTime = Time.time + attackCooldown;
+            }
+        }
+        // XL2: Trong tầm phát hiện -> Di chuyển đuổi theo
+        else if (distanceToPlayer <= detectRange)
+        {
+            SetMovingAnimation(true);
+            transform.position = Vector2.MoveTowards(transform.position, playar.position, moveSpeed * Time.deltaTime);
+        }
+        // XL3: Ngoài tầm phát hiện -> Đứng yên
+        else
+        {
+            SetMovingAnimation(false);
+        }
+    }
+
+    private void FlipTowardsPlayer()
+    {
+        if (playar.position.x > transform.position.x)
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else if (playar.position.x < transform.position.x)
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+    }
+
+    private void SetMovingAnimation(bool isMoving)
+    {
+        if (anim != null)
+        {
+            anim.SetBool("isMoving", isMoving);
+        }
+    }
+
+    private IEnumerator PerformAttack()
+    {
+        isAttacking = true;
+        SetMovingAnimation(false);
+
+        // Kích hoạt Animation chém
+        if (anim != null)
+        {
+            anim.SetTrigger("danh");
+        }
+
+        // Chờ thời gian báo đòn (Telegraph)
+        yield return new WaitForSeconds(telegraphTime);
+
+        // Tính lượng sát thương theo Phase
+        float damageToDeal = isPhaseTwo ? damagePhaseTwo : damagePhaseOne;
+
+        // Vị trí chém: Nếu có AttackPoint thì lấy theo AttackPoint, ngược lại lấy vị trí Boss
+        Vector3 checkPos = (attackPoint != null) ? attackPoint.position : transform.position;
+
+        // Quét tìm xem Player có đứng trong tầm chém không
+        Collider2D hitPlayer = Physics2D.OverlapCircle(checkPos, attackRadius, playerLayer);
+
+        if (hitPlayer != null)
+        {
+            Player pScript = hitPlayer.GetComponent<Player>();
+            if (pScript != null)
+            {
+                pScript.TakeDamage(damageToDeal, transform.position);
+                Debug.Log($"⚔️ BOSS vung đòn! Player mất {damageToDeal} máu!");
+            }
+        }
+
+        // Chờ đòn đánh hoàn tất
+        yield return new WaitForSeconds(0.3f);
+        isAttacking = false;
+    }
+
+    public void TakeDamage(float damageAmount)
+    {
+        if (isDead) return;
+
+        currentHealth -= damageAmount;
+        currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
+
+        Debug.Log($"💥 Boss trúng đòn! Máu còn: {currentHealth}/{maxHealth}");
+
+        if (currentHealth <= 0f)
         {
             Die();
         }
     }
 
-    private IEnumerator FlashDamageEffect()
-    {
-        isFlashing = true;
-
-        // Nháy màu đỏ trong 0.15s
-        spriteRenderer.color = Color.red;
-        yield return new WaitForSeconds(0.15f);
-
-        spriteRenderer.color = isPhaseTwo ? Color.red : originalColor;
-        isFlashing = false;
-    }
-
-    private void EnterPhaseTwo()
-    {
-        isPhaseTwo = true;
-        moveSpeed *= 1.3f;
-        attackCooldown *= 0.6f;
-        telegraphTime *= 0.7f;
-        originalColor = Color.red; // Đổi màu gốc sang Đỏ ở Phase 2
-        spriteRenderer.color = Color.red;
-    }
-
     private void Die()
     {
-        Debug.Log("Boss đã bị tiêu diệt!");
-        Destroy(gameObject);
+        if (isDead) return;
+        isDead = true;
+
+        SetMovingAnimation(false);
+
+        if (anim != null)
+        {
+            anim.SetTrigger("die");
+        }
+
+        Debug.Log("☠️ BOSS ĐÃ BỊ TIÊU DIỆT!");
+
+        // Vô hiệu hóa va chạm và Script khi Boss chết
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null) col.enabled = false;
+
+        this.enabled = false;
     }
 
     private void OnDrawGizmosSelected()
     {
+        // Vẽ vòng tròn phát hiện (màu vàng)
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectRange);
 
-        Gizmos.color = new Color(1f, 0.5f, 0f);
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-
-        if (attackPoint != null)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
-        }
+        // Vẽ vòng tròn tầm đánh (màu đỏ)
+        Vector3 checkPos = (attackPoint != null) ? attackPoint.position : transform.position;
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(checkPos, attackRadius);
     }
 }
