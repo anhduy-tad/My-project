@@ -20,6 +20,11 @@ public class Player : MonoBehaviour
     public float attackRate = 2f;
     private float nextAttackTime = 0f;
 
+    [Header("Damage Settings")]
+    public float contactDamage = 10f; // Số máu mất khi chạm vào quái
+    public float damageCooldown = 1f; // Thời gian bất tử tạm thời sau khi trúng đòn (giây)
+    private float nextDamageTime = 0f;
+
     [Header("Knockback Settings")]
     public float knockbackForce = 5f;
     public float knockbackDuration = 0.2f;
@@ -188,6 +193,69 @@ public class Player : MonoBehaviour
     }
 
     // ==========================================
+    // XỬ LÝ VA CHẠM VỚI QUÁI ĐỂ TRỪ MÁU
+    // ==========================================
+    private void HandleEnemyCollision(GameObject enemyObj)
+    {
+        // Kiểm tra xem đối tượng va chạm có phải là Quái hay Boss
+        bool isEnemy = enemyObj.GetComponent<Enemy>() != null ||
+                       enemyObj.GetComponent<Boss2D>() != null ||
+                       enemyObj.CompareTag("Enemy");
+
+        if (isEnemy && Time.time >= nextDamageTime)
+        {
+            TakeDamage(contactDamage, enemyObj.transform.position);
+            nextDamageTime = Time.time + damageCooldown; // Đặt thời gian chờ giữa các lần mất máu
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (isDead) return;
+
+        // Xử lý ăn Item
+        Item item = collision.gameObject.GetComponent<Item>();
+        if (item != null)
+        {
+            item.Collect(this);
+            return;
+        }
+
+        // Xử lý va chạm Vật Lý với Quái
+        HandleEnemyCollision(collision.gameObject);
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (isDead) return;
+        // Xử lý trường hợp đứng đè vào quái liên tục
+        HandleEnemyCollision(collision.gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (isDead) return;
+
+        // Xử lý ăn Item
+        Item item = collision.GetComponent<Item>();
+        if (item != null)
+        {
+            item.Collect(this);
+            return;
+        }
+
+        // Xử lý va chạm Trigger với Quái
+        HandleEnemyCollision(collision.gameObject);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (isDead) return;
+        // Xử lý đè vào vùng Trigger của quái liên tục
+        HandleEnemyCollision(collision.gameObject);
+    }
+
+    // ==========================================
     // XỬ LÝ KHI PLAYER CHẾT (DIE ANIMATION)
     // ==========================================
     private void Die()
@@ -239,28 +307,6 @@ public class Player : MonoBehaviour
         if (ScoreManager.instance != null)
         {
             ScoreManager.instance.AddScore(amount);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (isDead) return;
-
-        Item item = collision.GetComponent<Item>();
-        if (item != null)
-        {
-            item.Collect(this);
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (isDead) return;
-
-        Item item = collision.gameObject.GetComponent<Item>();
-        if (item != null)
-        {
-            item.Collect(this);
         }
     }
 

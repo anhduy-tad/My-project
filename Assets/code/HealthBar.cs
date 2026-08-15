@@ -1,49 +1,61 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
     [Header("--- UI COMPONENTS ---")]
     public Slider slider;
-    public Image fillImage; // Kéo ảnh Fill của Slider vào đây
+    public Image fillImage;
 
     [Header("--- CÀI ĐẶT MÀU SẮC (TÙY CHỌN) ---")]
-    public bool useGradientColor = true;
-    public Gradient healthGradient; // Chọn dải màu (Đỏ -> Vàng -> Xanh) trong Inspector
+    public bool useGradientColor = false;
+    public Gradient healthGradient;
 
     [Header("--- HIỆU ỨNG TỤT MÁU MƯỢT ---")]
-    public bool isSmooth = true;
+    public bool isSmooth = false;
     public float smoothSpeed = 5f;
 
     private float targetHealth;
 
-    // Khoản khởi tạo giá trị máu tối đa
-    public void SetMaxHealth(float maxHealth)
+    private void Awake()
     {
-        slider.maxValue = maxHealth;
-        slider.value = maxHealth;
-        targetHealth = maxHealth;
+        // Tự động tìm Slider nếu quên kéo vào Inspector
+        if (slider == null)
+        {
+            slider = GetComponent<Slider>();
+        }
+    }
+
+    public void SetMaxHealth(float health)
+    {
+        if (slider == null) slider = GetComponent<Slider>();
+
+        if (slider != null)
+        {
+            slider.maxValue = health;
+            slider.value = health;
+            targetHealth = health;
+        }
 
         UpdateColor();
     }
 
-    // Cập nhật giá trị máu khi nhận Damage hoặc hồi máu
-    public void SetHealth(float currentHealth)
+    public void SetHealth(float health)
     {
-        targetHealth = Mathf.Clamp(currentHealth, 0f, slider.maxValue);
+        targetHealth = health;
 
-        // Nếu không dùng hiệu ứng mượt thì cập nhật trực tiếp ngay lập tức
-        if (!isSmooth)
+        if (!isSmooth && slider != null)
         {
-            slider.value = targetHealth;
+            slider.value = health;
             UpdateColor();
         }
     }
 
-    void Update()
+    private void Update()
     {
-        // Xử lý hiệu ứng thanh máu di chuyển mượt mà về giá trị target
+        // CHỐNG LỖI NULL: Chỉ chạy hiệu ứng mượt khi đã có Slider
+        if (slider == null) return;
+
         if (isSmooth && Mathf.Abs(slider.value - targetHealth) > 0.01f)
         {
             slider.value = Mathf.Lerp(slider.value, targetHealth, Time.deltaTime * smoothSpeed);
@@ -53,9 +65,8 @@ public class HealthBar : MonoBehaviour
 
     private void UpdateColor()
     {
-        if (useGradientColor && fillImage != null)
+        if (useGradientColor && fillImage != null && slider != null && slider.maxValue > 0)
         {
-            // Tự động đổi màu dựa trên tỉ lệ % máu (0.0 đến 1.0)
             fillImage.color = healthGradient.Evaluate(slider.normalizedValue);
         }
     }

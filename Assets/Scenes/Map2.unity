@@ -99346,7 +99346,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   isDead: 0
-  healthBar: {fileID: 1493923475}
+  healthBar: {fileID: 1493923480}
   attackPoint: {fileID: 1809508790}
   attackRange: 0.5
   enemyLayers:
@@ -99354,6 +99354,8 @@ MonoBehaviour:
     m_Bits: 256
   attackDamage: 10
   attackRate: 2
+  contactDamage: 10
+  damageCooldown: 1
   knockbackForce: 5
   knockbackDuration: 0.2
   score: 0
@@ -99644,11 +99646,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2207713441607483581, guid: 993848130deded94080292bda190e288, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.719064
+      value: -0.373
       objectReference: {fileID: 0}
     - target: {fileID: 2207713441607483581, guid: 993848130deded94080292bda190e288, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9784539
+      value: 0.672
       objectReference: {fileID: 0}
     - target: {fileID: 2207713441607483581, guid: 993848130deded94080292bda190e288, type: 3}
       propertyPath: m_LocalPosition.z
@@ -119951,7 +119953,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1493923476}
   m_Father: {fileID: 2130210297}
@@ -120628,8 +120630,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1493923476}
   - component: {fileID: 1493923478}
-  - component: {fileID: 1493923475}
   - component: {fileID: 1493923477}
+  - component: {fileID: 1493923480}
   m_Layer: 5
   m_Name: Thanhmau
   m_TagString: Untagged
@@ -120637,53 +120639,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1493923475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1493923474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a469e27c7380619458b0161c7ec5eee0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 1493923477}
-  fillImage: {fileID: 1855938431}
-  useGradientColor: 1
-  healthGradient:
-    serializedVersion: 2
-    key0: {r: 0.8490566, g: 0.7032752, b: 0.7032752, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 0
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_ColorSpace: -1
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  isSmooth: 1
-  smoothSpeed: 10
 --- !u!224 &1493923476
 RectTransform:
   m_ObjectHideFlags: 0
@@ -120693,8 +120648,8 @@ RectTransform:
   m_GameObject: {fileID: 1493923474}
   m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
   m_LocalPosition: {x: 0, y: 0, z: -27.55}
-  m_LocalScale: {x: 2.78452, y: 3.266039, z: 5.9248886}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3, y: 3.5187812, z: 6.3833857}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 473029774}
   - {fileID: 1855938433}
@@ -120702,8 +120657,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -87, y: -672}
-  m_SizeDelta: {x: 153.6988, y: 22.6903}
+  m_AnchoredPosition: {x: 11, y: -675.8}
+  m_SizeDelta: {x: 100.7556, y: 16.5321}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1493923477
 MonoBehaviour:
@@ -120745,8 +120700,8 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
-  m_FillRect: {fileID: 0}
+  m_TargetGraphic: {fileID: 473029775}
+  m_FillRect: {fileID: 1855938433}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
@@ -120764,6 +120719,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493923474}
   m_CullTransparentMesh: 1
+--- !u!114 &1493923480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493923474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a469e27c7380619458b0161c7ec5eee0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1493923477}
+  fillImage: {fileID: 1855938431}
+  useGradientColor: 1
+  healthGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  isSmooth: 1
+  smoothSpeed: 5
 --- !u!4 &1495711233 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2659216299515928346, guid: 46b1d0a7913148749be3beb6b72a722e, type: 3}
@@ -121565,7 +121567,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -121586,16 +121588,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855938430}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.07207}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1493923476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 67, y: 10}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -1.0961, y: -0.6141}
+  m_SizeDelta: {x: -38.1669, y: -5.8404}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &1862320701 stripped
 Transform:
