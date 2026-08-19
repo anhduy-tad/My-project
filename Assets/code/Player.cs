@@ -188,9 +188,9 @@ public class Player : MonoBehaviour
 
             if (rb != null && attackerPosition != Vector2.zero)
             {
-                Vector2 knockbackDirection = ((Vector2)transform.position - attackerPosition).normalized;
-                StopCoroutine(nameof(ApplyKnockback));
-                StartCoroutine(ApplyKnockback(knockbackDirection));
+                //Vector2 knockbackDirection = ((Vector2)transform.position - attackerPosition).normalized;
+                //StopCoroutine(nameof(ApplyKnockback));
+                //StartCoroutine(ApplyKnockback(knockbackDirection));
             }
         }
     }
