@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  maxHealth: 500
+  maxHealth: 200
   currentHealth: 0
   isDead: 0
   healthBar: {fileID: 0}
