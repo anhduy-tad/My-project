@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Goblin : MonoBehaviour
 {
     [Header("Máu Quái")]
-    public float maxHealth = 100f;
+    public float maxHealth = 50f;
     public float currentHealth;
 
     [Header("Mục tiêu & Tốc độ")]
@@ -11,19 +11,16 @@ public class Enemy : MonoBehaviour
     public float moveSpeed = 2.5f;
 
     [Header("Tấn công & Phạm vi")]
-    public float detectRange = 8f;
+    public float detectRange = 6f;
     public float attackRange = 1.2f;
-    public float attackDamage = 10f;
-
-    [Header("Cấu hình Cooldown Tấn Công")]
-    public float attackCooldown = 2.0f;     // Thời gian hồi chiêu giữa 2 lần đánh (giây)
-    private float cooldownTimer = 0f;       // Bộ đếm thời gian
-    private bool isAttacking = false;
+    public float attackRate = 1.2f;   // Thời gian giữa 2 lần cắn (giây)
+    public float attackDamage = 5f;
+    private float nextAttackTime = 0f;
 
     [Header("Phần thưởng & Vật phẩm rơi")]
     public int scoreReward = 2;
-    public GameObject healItemPrefab;
-    [Range(0f, 1f)] public float dropChance = 0.5f;
+    public GameObject healItemPrefab; // Kéo Prefab bình máu vào đây (nếu có)
+    [Range(0f, 1f)] public float dropChance = 0.5f; // Tỉ lệ rớt item (50%)
 
     private Vector3 originalScale;
     private Rigidbody2D rb;
@@ -40,27 +37,20 @@ public class Enemy : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
 
-        // Cấu hình Rigidbody2D tự động để quái di chuyển mượt & không rớt map
+        // Cấu hình Rigidbody2D tự động để tránh xoay té ngửa
         if (rb != null)
         {
             rb.bodyType = RigidbodyType2D.Dynamic;
-            rb.gravityScale = 0f; // Tắt trọng lực 2D
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
-        transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
+        // Tự động tìm Player
         FindPlayer();
     }
 
     void Update()
     {
         if (isDead) return;
-
-        // Giảm thời gian Cooldown theo thời gian thực
-        if (cooldownTimer > 0)
-        {
-            cooldownTimer -= Time.deltaTime;
-        }
 
         if (player == null)
         {
@@ -69,31 +59,29 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        // Tính khoảng cách 2D tới Player
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
         // Lật mặt quái theo hướng Player
         FlipTowardsPlayer();
 
-        // 2. Vào tầm đánh -> Đứng lại tấn công
+        // 1. Vào tầm đánh -> Tấn công
         if (distanceToPlayer <= attackRange)
         {
             SetMovingAnimation(false);
 
-            // Chỉ tấn công khi đã HẾT Cooldown
-            if (cooldownTimer <= 0f)
+            if (Time.time >= nextAttackTime)
             {
                 AttackPlayer();
-                cooldownTimer = attackCooldown; // Đặt lại bộ đếm cooldown
+                nextAttackTime = Time.time + attackRate;
             }
         }
-        // 3. Nằm trong tầm phát hiện -> Đuổi theo
+        // 2. Vào tầm phát hiện -> Đuổi theo Player
         else if (distanceToPlayer <= detectRange)
         {
             SetMovingAnimation(true);
             MoveTowardsPlayer();
         }
-        // 4. Ngoại tầm -> Đứng yên
+        // 3. Quá xa -> Đứng yên
         else
         {
             SetMovingAnimation(false);
@@ -113,7 +101,7 @@ public class Enemy : MonoBehaviour
     {
         if (rb == null || player == null) return;
 
-        // Di chuyển bằng Rigidbody2D để không kẹt tường
+        // Di chuyển bằng vật lý Rigidbody2D mượt mà
         Vector2 direction = (player.position - transform.position).normalized;
         rb.MovePosition(rb.position + direction * moveSpeed * Time.deltaTime);
     }
@@ -143,13 +131,12 @@ public class Enemy : MonoBehaviour
 
     void AttackPlayer()
     {
-        // Chạy animation 'danh' trong Animator
         if (anim != null) anim.SetTrigger("danh");
 
         Player playerScript = player.GetComponent<Player>();
         if (playerScript != null)
         {
-            playerScript.TakeDamage(attackDamage);
+            playerScript.TakeDamage(attackDamage, transform.position);
         }
     }
 
@@ -161,9 +148,9 @@ public class Enemy : MonoBehaviour
         if (isDead) return;
 
         currentHealth -= damageAmount;
-        Debug.Log($"⚔️ [{gameObject.name}] Nhận {damageAmount} sát thương! Máu còn lại: {currentHealth}/{maxHealth}");
+        Debug.Log($"⚔️ [{gameObject.name}] Máu còn: {currentHealth}/{maxHealth}");
 
-        // Hiệu ứng nháy đỏ khi trúng đòn
+        // Nhấp nháy đỏ khi bị trúng đòn
         if (sr != null)
         {
             Invoke(nameof(ResetColor), 0.15f);
@@ -181,6 +168,9 @@ public class Enemy : MonoBehaviour
         if (sr != null) sr.color = Color.white;
     }
 
+    // ==========================================
+    // XỬ LÝ CHẾT & RỚT ITEM
+    // ==========================================
     void Die()
     {
         if (isDead) return;
@@ -190,10 +180,9 @@ public class Enemy : MonoBehaviour
 
         SetMovingAnimation(false);
 
-        // Chạy animation 'die' trong Animator
         if (anim != null) anim.SetTrigger("die");
 
-        // Tắt Collider để Player không bị vướng xác
+        // Tắt Collider
         Collider2D col = GetComponent<Collider2D>();
         if (col != null) col.enabled = false;
 
@@ -203,13 +192,13 @@ public class Enemy : MonoBehaviour
             ScoreManager.instance.AddScore(scoreReward);
         }
 
-        // Rớt Item hồi máu theo tỉ lệ
+        // Rớt Item hồi máu theo tỷ lệ
         if (healItemPrefab != null && Random.value <= dropChance)
         {
             Instantiate(healItemPrefab, transform.position, Quaternion.identity);
         }
 
-        // Tắt script và xóa quái sau 1.2s để chạy hết Animation Die
+        // Tắt script và xóa xác sau 1.2s
         this.enabled = false;
         Destroy(gameObject, 1.2f);
     }
@@ -222,5 +211,4 @@ public class Enemy : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
-
 }

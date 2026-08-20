@@ -1,196 +1,214 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Boss2D : MonoBehaviour
 {
-    [Header("--- THÔNG SỐ BOSS ---")]
-    public float maxHealth = 1000f;
+    [Header("Máu Boss")]
+    public float maxHealth = 300f;
     public float currentHealth;
-    public float moveSpeed = 3.5f;
-    public bool isPhaseTwo = false;
 
-    [Header("--- PHẠM VI & HỒI CHIÊU ---")]
-    public float detectRange = 10f;
-    public float attackRange = 1.8f;
-    public float attackCooldown = 2f;
+    [Header("Mục tiêu & Tốc độ")]
+    public Transform player;          // Để trống (None), Code sẽ tự tìm!
+    public float moveSpeed = 2.5f;
+
+    [Header("Tấn công & Phạm vi")]
+    public float detectRange = 8f;
+    public float attackRange = 1.5f;
+    public float attackRate = 1.0f;
+    public float attackDamage = 20f;
     private float nextAttackTime = 0f;
 
-    [Header("--- SÁT THƯƠNG & CHẾM ---")]
-    public Transform attackPoint;
-    public float attackRadius = 1.2f;
-    public float damagePhaseOne = 20f;
-    public float damagePhaseTwo = 35f;
-    public float telegraphTime = 0.5f;
-    public LayerMask playerLayer;
+    [Header("Phần thưởng & Vật phẩm rơi")]
+    public int scoreReward = 10;
+    public GameObject healItemPrefab;
+    [Range(0f, 1f)] public float dropChance = 1.0f;
 
-    [Header("--- THAM CHIẾU ---")]
-    public Transform playar; // Giữ nguyên tên 'playar' để khớp với Inspector của bạn
-
+    private Vector3 originalScale;
     private Rigidbody2D rb;
+    private SpriteRenderer sr;
     private Animator anim;
-    private bool isAttacking = false;
     private bool isDead = false;
 
     void Start()
     {
+        currentHealth = maxHealth;
+        originalScale = transform.localScale;
+
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
 
-        // 1. Khởi tạo máu ban đầu (tránh lỗi máu = 0 khiến Boss đứng im)
-        currentHealth = maxHealth;
-
-        // 2. Tự tìm Player bằng Tag nếu chưa gán trong Inspector
-        if (playar == null)
+        // Cấu hình Rigidbody2D y hệt Quái Nhỏ
+        if (rb != null)
         {
-            GameObject pObj = GameObject.FindGameObjectWithTag("Player");
-            if (pObj != null) playar = pObj.transform;
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.gravityScale = 0f; // Tắt trọng lực để không rớt map
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
+
+        // Đảm bảo Z = 0
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
+
+        FindPlayer();
     }
 
     void Update()
     {
-        if (isDead || playar == null || isAttacking) return;
+        if (isDead) return;
 
-        float distanceToPlayer = Vector2.Distance(transform.position, playar.position);
-
-        // Kích hoạt Phase 2 khi máu Boss giảm xuống dưới 50%
-        if (currentHealth <= maxHealth * 0.5f && !isPhaseTwo)
+        // 1. Chưa có Player -> Tự tìm lại
+        if (player == null)
         {
-            isPhaseTwo = true;
-            moveSpeed *= 1.25f; // Tăng tốc độ chạy ở Phase 2
-            Debug.Log("🔥 BOSS NỔI GIẬN: CHUYỂN SANG PHASE 2!");
+            FindPlayer();
+            SetMovingAnimation(false);
+            return;
         }
 
-        // Lật hướng nhìn của Boss theo vị trí Player
+        // Tính khoảng cách 2D tới Player
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+        // Lật mặt Boss theo Player
         FlipTowardsPlayer();
 
-        // XL1: Trong tầm đánh -> Tấn công
+        // 2. Vào tầm đánh -> Đứng lại tấn công
         if (distanceToPlayer <= attackRange)
         {
             SetMovingAnimation(false);
 
             if (Time.time >= nextAttackTime)
             {
-                StartCoroutine(PerformAttack());
-                nextAttackTime = Time.time + attackCooldown;
+                AttackPlayer();
+                nextAttackTime = Time.time + attackRate;
             }
         }
-        // XL2: Trong tầm phát hiện -> Di chuyển đuổi theo
+        // 3. Vào tầm phát hiện -> Đuổi theo (chạy animation đi bộ)
         else if (distanceToPlayer <= detectRange)
         {
             SetMovingAnimation(true);
-            transform.position = Vector2.MoveTowards(transform.position, playar.position, moveSpeed * Time.deltaTime);
+            MoveTowardsPlayer();
         }
-        // XL3: Ngoài tầm phát hiện -> Đứng yên
+        // 4. Ngoại tầm -> Đứng yên
         else
         {
             SetMovingAnimation(false);
         }
     }
 
-    private void FlipTowardsPlayer()
+    void FindPlayer()
     {
-        if (playar.position.x > transform.position.x)
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
         {
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-        }
-        else if (playar.position.x < transform.position.x)
-        {
-            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            player = playerObj.transform;
         }
     }
 
-    private void SetMovingAnimation(bool isMoving)
+    void MoveTowardsPlayer()
     {
-        if (anim != null)
+        // Di chuyển đơn giản giống quái nhỏ
+        Vector3 targetPosition = new Vector3(player.position.x, player.position.y, transform.position.z);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+    }
+
+    void FlipTowardsPlayer()
+    {
+        if (player == null) return;
+
+        float absX = Mathf.Abs(originalScale.x);
+        float absY = Mathf.Abs(originalScale.y);
+        float absZ = Mathf.Abs(originalScale.z);
+
+        if (player.position.x < transform.position.x)
         {
-            anim.SetBool("isMoving", isMoving);
+            transform.localScale = new Vector3(-absX, absY, absZ);
+        }
+        else if (player.position.x > transform.position.x)
+        {
+            transform.localScale = new Vector3(absX, absY, absZ);
         }
     }
 
-    private IEnumerator PerformAttack()
+    void SetMovingAnimation(bool isMoving)
     {
-        isAttacking = true;
-        SetMovingAnimation(false);
-
-        // Kích hoạt Animation chém
-        if (anim != null)
-        {
-            anim.SetTrigger("danh");
-        }
-
-        // Chờ thời gian báo đòn (Telegraph)
-        yield return new WaitForSeconds(telegraphTime);
-
-        // Tính lượng sát thương theo Phase
-        float damageToDeal = isPhaseTwo ? damagePhaseTwo : damagePhaseOne;
-
-        // Vị trí chém: Nếu có AttackPoint thì lấy theo AttackPoint, ngược lại lấy vị trí Boss
-        Vector3 checkPos = (attackPoint != null) ? attackPoint.position : transform.position;
-
-        // Quét tìm xem Player có đứng trong tầm chém không
-        Collider2D hitPlayer = Physics2D.OverlapCircle(checkPos, attackRadius, playerLayer);
-
-        if (hitPlayer != null)
-        {
-            Player pScript = hitPlayer.GetComponent<Player>();
-            if (pScript != null)
-            {
-                pScript.TakeDamage(damageToDeal, transform.position);
-                Debug.Log($"⚔️ BOSS vung đòn! Player mất {damageToDeal} máu!");
-            }
-        }
-
-        // Chờ đòn đánh hoàn tất
-        yield return new WaitForSeconds(0.3f);
-        isAttacking = false;
+        // Khớp biến 'isMoving' trong Animator
+        if (anim != null) anim.SetBool("isMoving", isMoving);
     }
 
+    void AttackPlayer()
+    {
+        // Khớp Trigger 'danh' trong Animator
+        if (anim != null) anim.SetTrigger("danh");
+
+        Player playerScript = player.GetComponent<Player>();
+        if (playerScript != null)
+        {
+            playerScript.TakeDamage(attackDamage);
+        }
+    }
+
+    // ==========================================
+    // NHẬN SÁT THƯƠNG TỪ PLAYER
+    // ==========================================
     public void TakeDamage(float damageAmount)
     {
         if (isDead) return;
 
         currentHealth -= damageAmount;
-        currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
+        Debug.Log($"⚔️ [BOSS] Nhận {damageAmount} sát thương! Máu còn: {currentHealth}/{maxHealth}");
 
-        Debug.Log($"💥 Boss trúng đòn! Máu còn: {currentHealth}/{maxHealth}");
+        // Nháy đỏ
+        if (sr != null)
+        {
+            Invoke(nameof(ResetColor), 0.15f);
+            sr.color = Color.red;
+        }
 
-        if (currentHealth <= 0f)
+        if (currentHealth <= 0)
         {
             Die();
         }
     }
 
-    private void Die()
+    void ResetColor()
+    {
+        if (sr != null) sr.color = Color.white;
+    }
+
+    // ==========================================
+    // XỬ LÝ BOSS CHẾT & RỚT ĐỒ
+    // ==========================================
+    void Die()
     {
         if (isDead) return;
         isDead = true;
 
         SetMovingAnimation(false);
 
-        if (anim != null)
-        {
-            anim.SetTrigger("die");
-        }
+        // Khớp Trigger 'die' trong Animator
+        if (anim != null) anim.SetTrigger("die");
 
-        Debug.Log("☠️ BOSS ĐÃ BỊ TIÊU DIỆT!");
-
-        // Vô hiệu hóa va chạm và Script khi Boss chết
         Collider2D col = GetComponent<Collider2D>();
         if (col != null) col.enabled = false;
 
+        if (ScoreManager.instance != null)
+        {
+            ScoreManager.instance.AddScore(scoreReward);
+        }
+
+        if (healItemPrefab != null && Random.value <= dropChance)
+        {
+            Instantiate(healItemPrefab, transform.position, Quaternion.identity);
+        }
+
         this.enabled = false;
+        Destroy(gameObject, 1.5f);
     }
 
     private void OnDrawGizmosSelected()
     {
-        // Vẽ vòng tròn phát hiện (màu vàng)
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectRange);
 
-        // Vẽ vòng tròn tầm đánh (màu đỏ)
-        Vector3 checkPos = (attackPoint != null) ? attackPoint.position : transform.position;
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(checkPos, attackRadius);
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }
